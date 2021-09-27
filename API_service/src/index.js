@@ -1,7 +1,4 @@
-const https = require('https');
-const fs = require('fs');
 const morgan = require('morgan');
-const http = require('http');
 const cors = require('cors');
 const routes = require('./routes');
 const express = require('express');
