@@ -7,17 +7,28 @@ var obj = {
     "state":  "badakhshan",
     "movies": [
         {"id":17,"movie_name":"Forrest Gump","rating":0,"genre":"Family"},
-        {"id":30,"movie_name":"Léon: The Professional","rating":0,"genre":"TV Movie"},
-        {"id":86,"movie_name":"Singin' in the Rain","rating": 0,"genre":"Family"},
-        {"id":93,"movie_name":"2001: A Space Odyssey","rating": 0,"genre":"Drama"},
-        {"id":97,"movie_name":"The Apartment","rating": 0,"genre":"Adventure"}
+        // {"id":30,"movie_name":"Léon: The Professional","rating":0,"genre":"TV Movie"},
+        // {"id":86,"movie_name":"Singin' in the Rain","rating": 0,"genre":"Family"},
+        // {"id":93,"movie_name":"2001: A Space Odyssey","rating": 0,"genre":"Drama"},
+        // {"id":97,"movie_name":"The Apartment","rating": 0,"genre":"Adventure"}
     ]
-  }
+};
+var obj1 = {
+  "country": "afghanistan",
+    "state":  "badakhshan",
+    "movies": [
+      {"id":30,"movie_name":"Léon: The Professional","rating":0,"genre":"TV Movie"},
+        // {"id":86,"movie_name":"Singin' in the Rain","rating": 0,"genre":"Family"},
+        // {"id":93,"movie_name":"2001: A Space Odyssey","rating": 0,"genre":"Drama"},
+        // {"id":97,"movie_name":"The Apartment","rating": 0,"genre":"Adventure"}
+    ]
+}
 
-const add_index_value = async() => {
+
+const add_index_value = async(val) => {
     client.index({
-          index : obj.country,
-          body : obj
+          index : val.state.toLowerCase(),
+          body : val
         }).then(function(resp) {
               console.log("Index value added");
             }, function(err) {
@@ -47,7 +58,8 @@ const map_indexing = async() => {
     }
   }).then(function(resp) {
         console.log("Successful Mapping");
-        add_index_value();
+        add_index_value(obj);
+        add_index_value(obj1);
   }, function(err) {
         console.trace(err.message);
   });
@@ -90,7 +102,7 @@ const search = async() => {
            },
         },
       }).then(function(res) {
-         console.log(res.body.hits.hits[0].inner_hits.movies.hits.hits)
+         console.log(res.body.hits.hits)
          resolve(res)
       }, function(err) {
         reject(err.message)
@@ -110,9 +122,6 @@ const create_index = async() => {
     //     }, function(err) {
     //       console.trace(err.message);
     // });
-  
   search()
-    
-    
 }
 create_index()
