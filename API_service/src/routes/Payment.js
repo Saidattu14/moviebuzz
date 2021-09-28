@@ -7,7 +7,6 @@ const kafka = require('../kafka_producer/booking-payment-producer');
 router.post(
     '/payment-transction-details',
     [
-
       query('transaction_id'),
       apiErrorReporter,
     ],

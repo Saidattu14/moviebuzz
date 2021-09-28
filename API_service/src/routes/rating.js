@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { query,param} = require('express-validator');
 const apiErrorReporter = require('../utils/api_error_report');
 const kafka = require('../kafka_producer/review-rating-producer')
-router.put(
+router.patch(
   '/update_rating',
   [
    
