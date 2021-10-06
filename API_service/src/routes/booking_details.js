@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { v4: uuidv4 } = require('uuid');
 const { body, query,param} = require('express-validator');
 const apiErrorReporter = require('../utils/api_error_report');
 const kafka = require('../kafka_producer/booking-payment-producer');
@@ -24,6 +25,23 @@ router.get(
     },
 );
 
+/** Example body
+ {
+"Date" : "11/2/20",
+"show_id" : "1",
+"seating" : [
+    {
+        "row_id" : "A",
+        "seat_number" : ["A1","A2"]
+    },
+    {
+        "row_id" : "B",
+        "seat_number" : ["B1","B2"]
+    }
+    ]
+}
+ **/
+
 router.post(
     '/:country_name/:state-and-Where-movie=:movie_name-and-theater',
     [
@@ -34,19 +52,28 @@ router.post(
       apiErrorReporter,
     ],
     async (req, res, next) => {
+      let request_id = uuidv4();
       try {
-        const data = req.body;
+        const data = {
+          "request_id" : request_id,
+          "state" : req.params.state,
+          "country_name" : req.params.country_name,
+          "movie_name" : req.params.movie_name,
+          "theater_id" : req.query.theater_id,
+          "Date" : req.body.Date,
+          "show_id" : req.body.show_id,
+          "seating" : req.body.seating
+        }
+        console.log(data)
         kafka.booking_information(data,(err) => {
           console.log(err)
         })
-        return res.status(201).send('OK');
+        return res.status(201).send({"request_id" : request_id,"message": "Processing"});
       } catch (err) {
         return next(err);
       }
     },
 );
-
-
 kafka.on('ready', function() {
     console.log('Booking-Payment-Producer has connected.')
   });
