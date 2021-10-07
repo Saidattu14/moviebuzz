@@ -10,8 +10,6 @@ async function run() {
       "user" : "mongo-user",
       "pass" : "mongo-pw"   
     }).then(() => console.log("connected")).catch(err => console.error(err));
-    
-
 }
 async function update_review(data)
 {

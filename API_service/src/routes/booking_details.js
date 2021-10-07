@@ -85,15 +85,38 @@ router.post(
         });
         console.log(response)
       } catch (error) {
-        
+        return next(err);
       }
-     
         return res.status(201).send({"booking_request_id" : request_id,"message": "Processing"});
       } catch (err) {
         return next(err);
       }
     },
 );
+
+router.get(
+  '/request/Booking-data/status',
+  [
+    query('booking_request_id'),
+    apiErrorReporter,
+  ],
+  async (req, res, next) => {
+
+    let querys = {
+      'booking_request_id' : req.query.booking_request_id
+    }
+    let url_params = new URLSearchParams(Object.entries(querys))
+    try {
+      
+      const response = await fetch(`http://localhost:8001/status/booking-status?` + url_params);
+      console.log(response)
+      return res.status(201).send("OK");
+    } catch (error) {
+      return next(error);
+    }  
+  }
+);
+
 kafka.on('ready', function() {
     console.log('Booking-Payment-Producer has connected.')
   });
