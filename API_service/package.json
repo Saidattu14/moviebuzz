@@ -21,6 +21,7 @@
   "license": "MIT",
   "dependencies": {
     "@elastic/elasticsearch": "^7.14.1",
+    "@ungap/url-search-params": "^0.2.2",
     "better-config": "^1.2.3",
     "bluebird": "^3.5.5",
     "body-parser": "^1.19.0",
@@ -30,6 +31,7 @@
     "flat": "^5.0.2",
     "moment": "^2.24.0",
     "morgan": "^1.9.1",
+    "node-fetch": "^3.0.0",
     "node-rdkafka": "^2.11.0",
     "random-string": "^0.2.0",
     "redis": "^2.8.0",
@@ -37,6 +39,7 @@
     "round-to": "^4.0.0",
     "shortid": "^2.2.14",
     "split2": "^3.2.2",
+    "url-search-params-polyfill": "^8.1.1",
     "uuid": "^3.4.0",
     "winston": "^3.2.1"
   },

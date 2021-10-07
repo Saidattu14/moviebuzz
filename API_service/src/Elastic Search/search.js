@@ -1,6 +1,5 @@
-const search_moviebygenre = async(client,obj) => {
-  
-  let pr = new Promise((resolve,reject) => {
+const search_moviebygenre = async(client,obj) => {  
+let pr = new Promise((resolve,reject) => {
         client.search({
           index: obj.state,
           body: {
@@ -19,7 +18,7 @@ const search_moviebygenre = async(client,obj) => {
       }, function(err) {
         reject(err.message)
         console.trace(err.message);
-      });
+    });
   })
   return pr
 }
@@ -105,7 +104,7 @@ const search_moviebyrating = async(client,obj) => {
        
       ],
     },
-      }).then(function(res) {
+    }).then(function(res) {
          console.log(res.body.hits.hits)
          resolve(res.body.hits.hits)
       }, function(err) {

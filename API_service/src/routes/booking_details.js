@@ -1,4 +1,6 @@
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const router = require('express').Router();
+const URLSearchParams = require('@ungap/url-search-params')
 const { v4: uuidv4 } = require('uuid');
 const { body, query,param} = require('express-validator');
 const apiErrorReporter = require('../utils/api_error_report');
@@ -7,9 +9,9 @@ const kafka = require('../kafka_producer/booking-payment-producer');
 router.get(
     '/:country/:state-and-Where-therters-available-tickets',
     [
-        param('state'),
-        param('country_name'),
-        query('movie_name'),
+      param('state'),
+      param('country_name'),
+      query('movie_name'),
       apiErrorReporter,
     ],
     async (req, res, next) => {
@@ -45,10 +47,10 @@ router.get(
 router.post(
     '/:country_name/:state-and-Where-movie=:movie_name-and-theater',
     [
-        param('state'),
-        param('movie_name'),
-        param('country_name'),
-        query('theater_id'),
+      param('state'),
+      param('movie_name'),
+      param('country_name'),
+      query('theater_id'),
       apiErrorReporter,
     ],
     async (req, res, next) => {
@@ -67,8 +69,26 @@ router.post(
         console.log(data)
         kafka.booking_information(data,(err) => {
           console.log(err)
-        })
-        return res.status(201).send({"request_id" : request_id,"message": "Processing"});
+        });
+      let body_data = JSON.stringify(data) 
+      let querys = {
+        'booking_request_id' : request_id
+      }
+      let url_params = new URLSearchParams(Object.entries(querys))
+      try {
+        
+        const response = await fetch(`http://localhost:8001/status/booking-status?` + url_params, 
+        {
+          method: 'POST', 
+          body: body_data,
+          headers: {'Content-Type': 'application/json'},
+        });
+        console.log(response)
+      } catch (error) {
+        
+      }
+     
+        return res.status(201).send({"booking_request_id" : request_id,"message": "Processing"});
       } catch (err) {
         return next(err);
       }

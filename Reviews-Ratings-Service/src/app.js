@@ -54,7 +54,7 @@ async function update_rating(data)
     },
     {
       arrayFilters : [{"elem.rating_id" : data.rating_id}]
-    }).then(() => console.log("Comment Inserted")).catch(err => console.error(err))
+    }).then(() => console.log("Rating Updated")).catch(err => console.error(err))
 }
 async function delete_rating(data)
 {

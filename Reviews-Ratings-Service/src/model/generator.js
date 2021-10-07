@@ -2,7 +2,6 @@ const mongoose = require('mongoose')
 const movies = require('./schema.js');
 const {v4 : uuidv4} = require('uuid')
 const movies_data = require('./movies.json');
-const { add } = require('winston');
 
 async function run() {
     let url = 'mongodb://localhost:27017';
