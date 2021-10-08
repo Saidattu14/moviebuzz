@@ -11,7 +11,7 @@ router.post(
       apiErrorReporter,
     ],
     async (req, res, next) => {
-      let request_id = uuidv4();
+      
       try {
         const data = {
           "payment_id" : req.query.payment_id,
@@ -70,7 +70,6 @@ router.get(
     }  
   }
 );
-
 
 
 kafka.on('ready', function() {
