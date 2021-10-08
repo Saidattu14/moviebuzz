@@ -66,7 +66,7 @@ async function delete_rating(data)
     }).then(() => console.log("Rating Deleted")).catch(err => console.error(err))
   
 }
-async function add_rating()
+async function add_rating(data)
 {
   movies.updateOne({movie_id : data.movie_id},
     {
