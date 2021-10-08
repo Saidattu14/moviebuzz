@@ -11,12 +11,36 @@ router.post(
       apiErrorReporter,
     ],
     async (req, res, next) => {
+      let request_id = uuidv4();
       try {
-        const data = req.body;
-        kafka.payment_data(data,(err) => {
-          console.log(err)
-        })
-        return res.status(201).send('OK');
+        const data = {
+          "payment_id" : req.query.payment_id,
+          "user_name" : req.body.user_name,
+          "card_name" : req.body.card_name,
+          "card_number" : req.body.card_number,
+          "price" : req.body.price,
+          "mobile_no" : req.body.mobile_no,
+          "password" : req.body.password,
+        }
+      console.log(data)
+      let body_data = JSON.stringify(data) 
+      let querys = {
+        'payment_id' : req.query.payment_id
+      }
+      let url_params = new URLSearchParams(Object.entries(querys))
+      try {
+        
+        const response = await fetch(`http://localhost:8001/status/payment-transaction?` + url_params, 
+        {
+          method: 'POST', 
+          body: body_data,
+          headers: {'Content-Type': 'application/json'},
+        });
+        console.log(response)
+      } catch (error) {
+        return next(err);
+      }
+        return res.status(201).send({"payment_id" : req.query.payment_id,"message": "Payment in Processing"});
       } catch (err) {
         return next(err);
       }
