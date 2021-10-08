@@ -31,43 +31,9 @@ class KafkaProducer {
     on(event, callback) {
         this.producer.on(event, callback)
     }
-    movie_data(data, callback) {
-        let topicName = 'Booking-Payment'
-        let eventType = 'movie_with_theaters_and_avaliable_tickets'
-        let message = Buffer.from(JSON.stringify({eventType, payload: data}))
-        try {
-            this.producer.produce(
-                topicName,
-                null,
-                message,
-                Date.now()
-            )
-            callback(null)
-        } catch (err) {
-            console.log('caught')
-            callback(err)
-        }
-    }
     booking_information(data, callback) {
         let topicName = 'Booking-Payment'
         let eventType = 'Booking information'
-        let message = Buffer.from(JSON.stringify({eventType, payload: data}))
-        try {
-            this.producer.produce(
-                topicName,
-                null,
-                message,
-                Date.now()
-            )
-            callback(null)
-        } catch (err) {
-            console.log('caught')
-            callback(err)
-        }
-    }
-    payment_data(data, callback) {
-        let topicName = 'Booking-Payment'
-        let eventType = 'Payment'
         let message = Buffer.from(JSON.stringify({eventType, payload: data}))
         try {
             this.producer.produce(
