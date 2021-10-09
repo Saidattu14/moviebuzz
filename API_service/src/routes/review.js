@@ -48,8 +48,7 @@ router.delete(
       const data = req.body;
       kafka.delete_review(data,(err) => {
         console.log(err)
-      });
-
+      })
       return res.status(201).send('OK');
     } catch (err) {
       return next(err);
