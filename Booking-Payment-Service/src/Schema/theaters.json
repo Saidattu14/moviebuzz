@@ -1,0 +1,23 @@
+{
+    "theaters": [
+      { "name": "Cinémathèque québécoise"},
+      { "name": "Corona Theatre" },
+      { "name": "Eglinton Theatre" },
+      { "name": "Garneau Theatre" },
+      { "name": "Rex Theatre" },
+      { "name": "Royal Cinema" },
+      { "name": "Broadway Cinema" },
+      { "name": "Castle Cinema" },
+      { "name": "Cliff Theater" },
+      { "name": "History Cinema" },
+      { "name": "Menominee Opera House" },
+      { "name": "Los Angeles Theatre" },
+      { "name": "Congress Theater " },
+      { "name": "Fox Theatre movie theater" },
+      { "name": "Curzon Mayfair Cinema" },
+      { "name": "Former Granada movie theatre" },
+      { "name": "Electric Palace Cinema" },
+      { "name": "Odeon Cinema" },
+      { "name": "Granada Cinema" }
+    ]
+  }
