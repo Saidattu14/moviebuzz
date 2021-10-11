@@ -60,7 +60,7 @@ router.post(
         
         const response = await fetch(`http://localhost:8001/status/booking-status?` + url_params, 
         {
-          method: 'POST', 
+          method: 'POST',
           body: body_data,
           headers: {'Content-Type': 'application/json'},
         });

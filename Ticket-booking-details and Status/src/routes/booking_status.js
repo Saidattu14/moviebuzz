@@ -15,7 +15,10 @@ router.get(
         let result = await redis_client.getAsync(
           req.query.booking_request_id,
         )
-        result = JSON.parse(result)
+        if(result != "Booking in Progress")
+        {
+          result = JSON.parse(result)
+        }
         return res.status(200).json(result);
       } catch (err) {
         return next(err);

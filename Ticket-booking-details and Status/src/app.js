@@ -26,10 +26,35 @@ async function update_booking_status(data)
     }
     let a = await redis_client.setAsync(
       data.request_id,
-      JSON.stringify(obj)
+      JSON.stringify(obj),
+      'EX',
+      300
     )
     let b = await redis_client.getAsync(data.request_id) 
-    console.log(b)
+
+  }
+  else
+  {
+    let obj = {
+      "payment_id" : data.payment_id,
+      "status" : "Booking Tickets are Available",
+      "details" : data.booking_data,
+      "price" : data.booking_data
+    }
+    let a = await redis_client.setAsync(
+      data.request_id,
+      JSON.stringify(obj),
+      'EX',
+       300
+    )
+    let b = await redis_client.setAsync(
+      data.payment_id,
+      null,
+      'EX',
+       300
+    )
+    let b = await redis_client.getAsync(data.request_id) 
+    
   }
 }
 
