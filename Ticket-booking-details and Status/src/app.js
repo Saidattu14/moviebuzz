@@ -52,9 +52,7 @@ async function update_booking_status(data)
       null,
       'EX',
        300
-    )
-    let b = await redis_client.getAsync(data.request_id) 
-    
+    )  
   }
 }
 

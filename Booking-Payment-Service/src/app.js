@@ -68,6 +68,7 @@ async function check_booking(data)
     let data1 = {
       "request_id" : data.request_id,
       "payment_id" : uuidv4(),
+      "price"      :  arr.length * 150,
       "booking_data" : arr,
     }
     kafka_producer.booking_status(data1,(err) => {
@@ -108,7 +109,7 @@ kafka.consumer.on('ready', () => {
         }
         else if(event_type == "Payment")
         {
-
+          console.log(message.payload)
         }
         else
         {
@@ -120,5 +121,3 @@ kafka.consumer.on('ready', () => {
         
     }
 });
-
-

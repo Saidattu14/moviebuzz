@@ -24,30 +24,25 @@ router.get(
 );
 
 router.post(
-    '/payment-transaction',
+    '/payment-transaction/:booking_request_id',
     [
+      param('booking_request_id'),
       query('payment_id'),
       apiErrorReporter,
     ],
     async (req, res, next) => {
       try {
-        if(req.query.payment_id != undefined)
+        console.log("ok")
+        let res1 = await redis_client.getAsync(req.query.payment_id)
+        let res2 =  await redis_client.getAsync(req.params.booking_request_id)
+        
+        if(req.query.payment_id == null || req.query.payment_id == undefined)
         {
-          redis_client.hsetAsync(
-            "Payment_Status",
-            req.query.payment_id,
-            "Payment in Progess",
-            'EX',
-             180
-          ).then(
-        () => 
-        {
-            kafka.payment_data(data,(err) => {
-                console.log(err)
-              });
+          return res.status(400).send('Invalid Payment Id');
         }
-        ).catch(err => console.error(err))
-          return res.status(201).send('Payment in Progress');
+        else if(res1 != null || res1 != null)
+        {
+         console.log(res2)
         }
         else
         {
