@@ -78,7 +78,6 @@ async function check_booking(data)
       "price"      :  arr.length * 150,
       "booking_data" : arr,
     }
-    console.log(data1)
     kafka_producer.booking_status(data1,(err) => {
       console.log(err)
     })
@@ -103,9 +102,38 @@ async function check_booking(data)
 async function update_booking(data)
 {
  let tickets = data.booking_details.details;
- 
+ console.log(data)
 let result = await Transaction(tickets,client);
-console.log(result)
+  if(result == 'Success')
+  {
+    let obj = {
+      "Transaction_id" : uuidv4(),
+      "payment_data" : data.payment_data,
+      "booking_request_id" : data.booking_request_id,
+      "details" : tickets,
+      "price" : data.price,
+      "status" : 'Transaction Done'
+    } 
+    kafka_producer.payment_status(obj,(err) => {
+      console.log(err)
+    })
+    
+  }
+  else
+  {
+    let obj = {
+      "Transaction_id" : uuidv4(),
+      "payment_data" : data.payment_data,
+      "booking_request_id" : data.booking_request_id,
+      "details" : tickets,
+      "price" : data.price,
+      "status" : 'Transaction Failed'
+    }
+    kafka_producer.payment_status(obj,(err) => {
+      console.log(err)
+    })
+    
+  }
 
 }
 
@@ -134,7 +162,7 @@ kafka.consumer.on('ready', () => {
         }
         else
         {
-          
+          kafka.consumer.commitMessage(data)
         }
     }
    catch (err) {

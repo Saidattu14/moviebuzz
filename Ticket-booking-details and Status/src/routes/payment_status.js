@@ -4,7 +4,9 @@ const { body, query,param} = require('express-validator');
 const apiErrorReporter = require('../utils/api_error_report');
 const redis_client = require('../Redis/client')
 const kafka = require('../kafka-producer/payment-producer');
-const { json } = require('body-parser');
+
+
+
 router.get(
     '/payment-transaction',
     [
@@ -56,9 +58,8 @@ router.post(
             "booking_id" : req.params.booking_request_id,
             "booking_details" : JSON.parse(res2)
           }
-          console.log(data)
           try {
-            let update_payment_status = await redis_client.setAsync(req.query.payment_id,"Payment In Progress")
+            await redis_client.setAsync(req.query.payment_id,"Payment In Progress")
 
           } catch (error) {
             console.log(error)

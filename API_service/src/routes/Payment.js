@@ -23,7 +23,7 @@ router.post(
           "mobile_no" : req.body.mobile_no,
           "password" : req.body.password,
         }
-      console.log(data)
+      
       let body_data = JSON.stringify(data) 
       let querys = {
         'payment_id' : req.query.payment_id
@@ -38,14 +38,14 @@ router.post(
           body: body_data,
           headers: {'Content-Type': 'application/json'},
         });
-        console.log(response)
-       
+        
         if(response.status == 400 || response.status == 404 || response.status == 500)
         {
           return res.status(400).send('Payment Session Expired');
         }
         else
         {
+          console.log(response)
           return res.status(200).send("OK");
         }
       } catch (err) {
@@ -77,7 +77,7 @@ router.get(
         return res.status(400).send("Invalid Payment Id");
 
       }
-  
+      
       return res.status(200).send("OK");
     } catch (error) {
       return next(error);
