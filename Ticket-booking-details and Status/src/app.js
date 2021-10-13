@@ -39,20 +39,22 @@ async function update_booking_status(data)
       "payment_id" : data.payment_id,
       "status" : "Booking Tickets are Available",
       "details" : data.booking_data,
-      "price" : data.booking_data
+      "price" : data.price
     }
+    
     let a = await redis_client.setAsync(
       data.request_id,
       JSON.stringify(obj),
       'EX',
        300
     )
+
     let b = await redis_client.setAsync(
       data.payment_id,
-      null,
+      "Payment Not Started",
       'EX',
        300
-    )  
+    )
   }
 }
 

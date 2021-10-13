@@ -19,7 +19,7 @@ router.post(
           "user_name" : req.body.user_name,
           "card_name" : req.body.card_name,
           "card_number" : req.body.card_number,
-          "price" : req.body.price,
+          "price" :       req.body.price,
           "mobile_no" : req.body.mobile_no,
           "password" : req.body.password,
         }
@@ -39,14 +39,18 @@ router.post(
           headers: {'Content-Type': 'application/json'},
         });
         console.log(response)
+       
         if(response.status == 400 || response.status == 404 || response.status == 500)
         {
           return res.status(400).send('Payment Session Expired');
         }
+        else
+        {
+          return res.status(200).send("OK");
+        }
       } catch (err) {
         return next(err);
       }
-        
       } catch (err) {
         return next(err);
       }
@@ -62,15 +66,19 @@ router.get(
   async (req, res, next) => {
 
     let querys = {
-      'payment_id' : req.query.payment
+      'payment_id' : req.query.payment_id
     }
     let url_params = new URLSearchParams(Object.entries(querys))
     try {
       
-      const response = await fetch(`http://localhost:8001/status/booking-status?` + url_params);
-      const json_data = response.json();
-      console.log(json_data)
-      return res.status(201).send("OK");
+      const response = await fetch(`http://localhost:8001/status//payment-transaction?` + url_params);
+      if(response.status == 400 || response.status == 404 || response.status == 500) 
+      {
+        return res.status(400).send("Invalid Payment Id");
+
+      }
+  
+      return res.status(200).send("OK");
     } catch (error) {
       return next(error);
     }  

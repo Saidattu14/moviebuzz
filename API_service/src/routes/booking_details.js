@@ -90,9 +90,17 @@ router.get(
     try {
       
       const response = await fetch(`http://localhost:8001/status/booking-status?` + url_params);
-      console.log(response)
+      if(response.status == 500 || response.status == 400 || response.status == 404)
+      {
+        con
+        return res.status(400).send("BAD request");
+      }
+      else
+      {
+
       const json_data = await response.json();
       return res.status(200).json(json_data);
+      }
     } catch (error) {
       return next(error);
     }  

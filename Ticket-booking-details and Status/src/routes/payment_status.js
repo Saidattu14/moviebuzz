@@ -4,6 +4,7 @@ const { body, query,param} = require('express-validator');
 const apiErrorReporter = require('../utils/api_error_report');
 const redis_client = require('../Redis/client')
 const kafka = require('../kafka-producer/payment-producer');
+const { json } = require('body-parser');
 router.get(
     '/payment-transaction',
     [
@@ -12,17 +13,21 @@ router.get(
     ],
     async (req, res, next) => {
       try {
-        const result = await redis_client.hgetAsync(
-          "Payment_Status",
+        console.log("Hello")
+        const result = await redis_client.getAsync(
           req.query.payment_id,
-        ).then(() => console.log("Responsed")).catch(err => console.error(err))
+        );
+        console.log(result)
+        if(result == "Payment Not Started" || result == null)
+        {
+          return res.status(400).send('Invalid request ID');
+        }
         return res.status(201).send(result);
       } catch (err) {
         return next(err);
       }
     },
 );
-
 router.post(
     '/payment-transaction/:booking_request_id',
     [
@@ -32,21 +37,36 @@ router.post(
     ],
     async (req, res, next) => {
       try {
-        console.log("ok")
+        
         let res1 = await redis_client.getAsync(req.query.payment_id)
         let res2 =  await redis_client.getAsync(req.params.booking_request_id)
         
-        if(req.query.payment_id == null || req.query.payment_id == undefined)
+        if(res2 == null)
         {
           return res.status(400).send('Invalid Payment Id');
         }
-        else if(res1 != null || res1 != null)
+        else if(res1 == null)
         {
-         console.log(res2)
+          return res.status(400).send('Booking Session Expired');
         }
-        else
+        else 
         {
-          return res.status(400).send('Invalid request ID');
+          let data = {
+            "payment_data" : req.body,
+            "booking_id" : req.params.booking_request_id,
+            "booking_details" : JSON.parse(res2)
+          }
+          console.log(data)
+          try {
+            let update_payment_status = await redis_client.setAsync(req.query.payment_id,"Payment In Progress")
+
+          } catch (error) {
+            console.log(error)
+          }
+          kafka.payment_data(data,(err) => {
+            console.log(err)
+          });
+          return res.status(200).send('Payment in Progress');
         }
         
       } catch (err) {

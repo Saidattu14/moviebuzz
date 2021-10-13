@@ -1,6 +1,7 @@
 const kafka = require('./Kafka_consumer/booking-payment_consumer')
 const kafka_producer = require('./Kafka_producer/payment-producer')
 const Query = require('./Schema/Query')
+const Transaction = require('./Schema/tranasction')
 const { v4: uuidv4 } = require('uuid');
 const {Client} = require('pg');
 const client = new Client({
@@ -45,7 +46,13 @@ async function check_booking(data)
       obj = {
         "row_id" : row_id,
         "seat_id" : seat_number,
-        "result" : result
+        "result" : result,
+        "state" : data.state,
+        "country_name" : data.country_name,
+        "movie_name" : data.movie_name,
+        "theater_id" : data.theater_id,
+        "Date" : data.Date,
+        "show_id" : data.show_id,
       }
       arr.push(obj)
     }
@@ -86,12 +93,24 @@ async function check_booking(data)
       console.log(err)
     })
   }
-  console.log(arr)
+ 
   // Query(data,client);
   // kafka_producer.booking_status(data,(err) => {
   //   console.log(err)
   // });
 }
+async function update_booking(data)
+{
+ let tickets = data.booking_details.details;
+ 
+let result = await Transaction(tickets,client);
+console.log(result)
+
+}
+
+
+
+
 kafka.consumer.connect();
 kafka.consumer.on('ready', () => {
   console.log('Booking and Payment consumer ready!')
@@ -109,7 +128,8 @@ kafka.consumer.on('ready', () => {
         }
         else if(event_type == "Payment")
         {
-          console.log(message.payload)
+          update_booking(message.payload)
+          kafka.consumer.commitMessage(data)
         }
         else
         {
