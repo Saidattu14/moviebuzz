@@ -15,6 +15,7 @@ router.get(
         let result = await redis_client.getAsync(
           req.query.booking_request_id,
         )
+        
         if(result != "Booking in Progress")
         {
           result = JSON.parse(result)
@@ -39,7 +40,7 @@ router.post(
         {
           redis_client.setAsync(
             req.query.booking_request_id,
-            "Booking in Progess",
+            "Booking in Progress",
             'EX',
             300
           ).then(() => console.log("Request added")).catch(err => console.error(err))

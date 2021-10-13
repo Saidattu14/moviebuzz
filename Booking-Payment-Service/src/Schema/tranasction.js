@@ -1,14 +1,13 @@
 const bluebird = require('bluebird');
 const Transaction = async function query_run_select(data,client)
 {
-    
+    let pr = new Promise(async (resolve,reject) => {
     try {
         await client.query('BEGIN');
         let failure = false
         for(let i =0 ;i<data.length;i++)
         {
             let update_data = data[i];
-            console.log(update_data)
             let query_update = {
                 name :'up-user',
                 text: `WITH available_bookings as (
@@ -67,15 +66,22 @@ const Transaction = async function query_run_select(data,client)
         }
         if(failure == true)
         {
-            await client.query('ROLLBACK')
+            await client.query('ROLLBACK');
+            reject('Failure')
         }
         else
         {
             await client.query('COMMIT');
+            resolve('Success')
         }
     } catch (error) {
         await client.query('ROLLBACK');
+        reject('Failure')
     }
+   }).catch((err)=> {
+    return err;
+   });
+   return pr;
 }
 
 module.exports = Transaction;

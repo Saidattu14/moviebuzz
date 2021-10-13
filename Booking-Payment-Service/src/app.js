@@ -78,6 +78,7 @@ async function check_booking(data)
       "price"      :  arr.length * 150,
       "booking_data" : arr,
     }
+    console.log(data1)
     kafka_producer.booking_status(data1,(err) => {
       console.log(err)
     })
