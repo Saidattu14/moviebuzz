@@ -18,11 +18,16 @@ router.get(
           req.query.booking_request_id,
         )
         
-        if(result != "Booking in Progress")
+        if(result != "Booking in Progress" && result != null)
         {
           result = JSON.parse(result)
+          return res.status(200).json(result);
         }
-        return res.status(200).json(result);
+        else
+        {
+          return res.status(400).send('BAD Request');
+        }
+  
       } catch (err) {
         return next(err);
       }

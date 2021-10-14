@@ -69,15 +69,20 @@ async function update_payment_status(data)
       "Date" : new Date(),
       "Status" : data.status
     }
-    console.log(obj)
+  
+    let obj1 = {
+      "Transaction_id" : data.Transaction_id,
+      "status" : data.status
+    }
+   
     await redis_client.hsetAsync(
       "Transaction_data",
-      data.Tranasction_id,
+      data.Transaction_id,
       JSON.stringify(obj),
     );
     await redis_client.setAsync(
       data.payment_data.payment_id,
-      data.status,
+      JSON.stringify(obj1),
       'EX',
       300
     )

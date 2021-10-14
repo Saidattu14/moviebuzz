@@ -12,7 +12,7 @@ router.post(
       apiErrorReporter,
     ],
     async (req, res, next) => {
-      console.log("hello")
+      
       try {
         const data = {
           "payment_id" : req.query.payment_id,
@@ -45,8 +45,8 @@ router.post(
         }
         else
         {
-          console.log(response)
-          return res.status(200).send("OK");
+          
+          return res.status(201).send('OK');
         }
       } catch (err) {
         return next(err);
@@ -71,14 +71,18 @@ router.get(
     let url_params = new URLSearchParams(Object.entries(querys))
     try {
       
-      const response = await fetch(`http://localhost:8001/status//payment-transaction?` + url_params);
+      const response = await fetch(`http://localhost:8001/status/payment-transaction?` + url_params);
       if(response.status == 400 || response.status == 404 || response.status == 500) 
       {
         return res.status(400).send("Invalid Payment Id");
 
       }
-      
-      return res.status(200).send("OK");
+      else
+      {
+        const json_data = await response.json();
+        return res.status(200).json(json_data);
+      }
+     
     } catch (error) {
       return next(error);
     }  

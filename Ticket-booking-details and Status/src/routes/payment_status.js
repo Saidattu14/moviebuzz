@@ -15,16 +15,21 @@ router.get(
     ],
     async (req, res, next) => {
       try {
-        console.log("Hello")
-        const result = await redis_client.getAsync(
+        
+        let result = await redis_client.getAsync(
           req.query.payment_id,
         );
-        console.log(result)
         if(result == "Payment Not Started" || result == null)
         {
           return res.status(400).send('Invalid request ID');
         }
-        return res.status(201).send(result);
+        else
+        {
+          result = JSON.parse(result);
+          return res.status(200).json(result);
+        }
+      
+        
       } catch (err) {
         return next(err);
       }
