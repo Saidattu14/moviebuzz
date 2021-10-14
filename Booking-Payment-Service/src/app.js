@@ -93,11 +93,7 @@ async function check_booking(data)
       console.log(err)
     })
   }
- 
-  // Query(data,client);
-  // kafka_producer.booking_status(data,(err) => {
-  //   console.log(err)
-  // });
+
 }
 async function update_booking(data)
 {
@@ -136,9 +132,6 @@ let result = await Transaction(tickets,client);
   }
 
 }
-
-
-
 
 kafka.consumer.connect();
 kafka.consumer.on('ready', () => {

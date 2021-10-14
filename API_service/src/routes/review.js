@@ -57,6 +57,6 @@ router.delete(
 );
 
 kafka.on('ready', function() {
-  console.log('The producer has connected.')
+  console.log('Review-rating has connected.')
 });
 module.exports = router;

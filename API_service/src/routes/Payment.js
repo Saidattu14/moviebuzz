@@ -91,6 +91,6 @@ router.get(
 
 
 kafka.on('ready', function() {
-    console.log('The producer has connected.')
+    console.log('Payment has connected.')
 });
 module.exports = router;

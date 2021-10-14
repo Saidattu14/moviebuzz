@@ -6,8 +6,6 @@ const { body, query,param} = require('express-validator');
 const apiErrorReporter = require('../utils/api_error_report');
 const kafka = require('../kafka_producer/booking-payment-producer');
 
-
-
 /** Example body
  {
 "Date" : "11/2/20",
