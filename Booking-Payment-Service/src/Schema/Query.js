@@ -50,7 +50,6 @@ const Query = async function query_run_select(data,client)
             }
         })
     }).catch((err)=> {
-        console.log(err)
         return err;
     })
     return pr;
