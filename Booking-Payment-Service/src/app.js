@@ -80,7 +80,8 @@ async function check_booking(data)
     }
     kafka_producer.booking_status(data1,(err) => {
       console.log(err)
-    })
+    });
+    
   }
   else
   {
@@ -113,6 +114,9 @@ let result = await Transaction(tickets,client);
     kafka_producer.payment_status(obj,(err) => {
       console.log(err)
     })
+    kafka_producer.Sucess_transaction(obj,(err) => {
+      console.log(err)
+    })
     
   }
   else
@@ -128,7 +132,9 @@ let result = await Transaction(tickets,client);
     kafka_producer.payment_status(obj,(err) => {
       console.log(err)
     })
-    
+    kafka_producer.Failed_transaction(obj,(err) => {
+      console.log(err)
+    })
   }
 
 }
