@@ -127,8 +127,6 @@ kafka.consumer.on('ready', () => {
     }
 });
 
-
-
 app.listen(8001,() => {
  console.log('server listening on 8001')
 })

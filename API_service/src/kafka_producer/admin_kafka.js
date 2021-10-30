@@ -26,6 +26,14 @@ class KafkaAdmin {
           }, 10000,function(err) {
             console.log(err)
         });
+        client.createTopic({
+            topic: 'Transactional-Storage',
+            num_partitions: 2,
+            replication_factor: 2
+          }, 10000,function(err) {
+            console.log(err)
+        });
+
     }
 }
 const kafka_admin = new KafkaAdmin()
