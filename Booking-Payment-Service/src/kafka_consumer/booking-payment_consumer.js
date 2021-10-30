@@ -1,6 +1,6 @@
 const Kafka = require('node-rdkafka');
 
-class KafkaconsumerproducerClass {
+class KafkaconsumerClass {
     constructor()
     {
        var consumer = new Kafka.KafkaConsumer({
@@ -19,7 +19,7 @@ class KafkaconsumerproducerClass {
         this.consumer.on(event, callback)
     } 
 }
-const kafka = new KafkaconsumerproducerClass()
+const kafka = new KafkaconsumerClass()
 Object.freeze(kafka)
 
 module.exports = kafka;
