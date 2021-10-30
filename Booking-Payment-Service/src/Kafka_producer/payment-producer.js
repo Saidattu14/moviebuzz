@@ -64,9 +64,26 @@ class KafkaProducer {
             callback(err)
         }
     }
-    Store_transaction(data, callback) {
-        let topicName = 'Transaction'
-        let eventType = 'Store_transaction_details'
+    Sucess_transaction(data, callback) {
+        let topicName = 'Transactional-Storage'
+        let eventType = 'Sucess_Transaction'
+        let message = Buffer.from(JSON.stringify({eventType, payload: data}))
+        try {
+            this.producer.produce(
+                topicName,
+                null,
+                message,
+                Date.now()
+            )
+            callback(null)
+        } catch (err) {
+            console.log('caught')
+            callback(err)
+        }
+    }
+    Failed_transaction(data, callback) {
+        let topicName = 'Transactional-Storage'
+        let eventType = 'Failed_Transaction'
         let message = Buffer.from(JSON.stringify({eventType, payload: data}))
         try {
             this.producer.produce(

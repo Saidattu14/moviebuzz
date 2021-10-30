@@ -23,6 +23,3 @@ const kafka = new KafkaconsumerClass()
 Object.freeze(kafka)
 
 module.exports = kafka;
-
-
-
