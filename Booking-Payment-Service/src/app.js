@@ -114,7 +114,7 @@ let result = await Transaction(tickets,client);
     kafka_producer.payment_status(obj,(err) => {
       console.log(err)
     })
-    kafka_producer.Sucess_transaction(obj,(err) => {
+    kafka_producer.Success_transaction(obj,(err) => {
       console.log(err)
     })
     

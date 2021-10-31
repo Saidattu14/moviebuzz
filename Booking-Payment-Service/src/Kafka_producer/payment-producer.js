@@ -64,9 +64,9 @@ class KafkaProducer {
             callback(err)
         }
     }
-    Sucess_transaction(data, callback) {
+    Success_transaction(data, callback) {
         let topicName = 'Transactional-Storage'
-        let eventType = 'Sucess_Transaction'
+        let eventType = 'Success_Transaction'
         let message = Buffer.from(JSON.stringify({eventType, payload: data}))
         try {
             this.producer.produce(
