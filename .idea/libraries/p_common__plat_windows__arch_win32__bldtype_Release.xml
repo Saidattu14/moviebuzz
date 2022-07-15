@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="p-common__plat-windows__arch-win32__bldtype-Release">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/API_service/node_modules/node-rdkafka/deps/librdkafka/packaging/nuget/common/p-common__plat-windows__arch-win32__bldtype-Release/msvcr120.zip!/" />
+      <root url="jar://$PROJECT_DIR$/API_service/node_modules/node-rdkafka/deps/librdkafka/packaging/nuget/common/p-common__plat-windows__arch-win32__bldtype-Release/msvcr140.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
