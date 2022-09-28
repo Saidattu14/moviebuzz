@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/item1"
+            android:title="@string/title_1"
+            android:icon="@drawable/ic_baseline_access_time_24" />
+        <item
+            android:id="@+id/item2"
+            android:title="@string/title_2"
+            android:icon="@drawable/ic_baseline_history_24"/>
+        <item
+            android:id="@+id/item4"
+            android:title="@string/title_4"
+            android:icon="@drawable/ic_baseline_settings_24"/>
+        <item
+            android:id="@+id/item3"
+            android:title="@string/title_3"
+            android:icon="@drawable/ic_baseline_login_24"/>
+    </group>
+</menu>

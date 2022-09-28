@@ -1,0 +1,7 @@
+
+J
+java:S1066,"/Merge this if statement with the enclosing one.(ÔáŠ›øÿÿÿÿ
+>
+java:S1604("(Make this anonymous inner class a lambda(‰—‚¼
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(´”ëíÿÿÿÿÿ
+V	java:S125/"<This block of commented-out lines of code should be removed.(—ñÇ‘ÿÿÿÿÿ

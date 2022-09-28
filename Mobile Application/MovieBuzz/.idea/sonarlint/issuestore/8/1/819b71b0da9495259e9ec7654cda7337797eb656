@@ -1,0 +1,18 @@
+
+V	java:S107"AConstructor has 9 parameters, which is greater than 7 authorized.(Œš‡Ð
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éŸŠÿ
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…Ð«°
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…Ð«°
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÜØÐ“
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ð­¤†
+o	java:S116
+"URename this field "theater_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óæÇÅùÿÿÿÿ
+k	java:S116"WRename this field "theater_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(èÿÑ
+m	java:S116"SRename this field "movie_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(žÙÆ×ÿÿÿÿÿ
+j	java:S116"URename this field "movie_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„Ìˆó
+{	java:S116"aRename this field "available_booking_data" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µ‰µ¡øÿÿÿÿ
+c	java:S1002"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñ£¡
+c	java:S1006"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ìÊ¸
+c	java:S100:"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹©¨ˆ
+h	java:S100>"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êœ³Ÿùÿÿÿÿ
+c	java:S100B"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üôÆž

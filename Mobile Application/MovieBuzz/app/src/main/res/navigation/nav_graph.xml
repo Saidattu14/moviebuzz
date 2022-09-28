@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment2">
+
+    <fragment
+        android:id="@+id/loginFragment2"
+        android:name="com.example.moviebuzz.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment2_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment2_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.moviebuzz.ui.register.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.moviebuzz.ui.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_movieFragment"
+            app:destination="@id/movieFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_transactionHistoryFragment"
+            app:destination="@id/transactionHistoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieFragment"
+        android:name="com.example.moviebuzz.ui.movie.MovieFragment"
+        android:label="fragment_movie"
+        tools:layout="@layout/fragment_movie" >
+        <action
+            android:id="@+id/action_movieFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_movieFragment_to_fragment_all_reviews"
+            app:destination="@id/fragment_all_reviews" />
+        <action
+            android:id="@+id/action_movieFragment_to_movieAvailability"
+            app:destination="@id/movieAvailabilityFragment" />
+        <action
+            android:id="@+id/action_movieFragment_to_searchFragment2"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_all_reviews"
+        android:name="com.example.moviebuzz.ui.reviews.Fragment_all_reviews"
+        android:label="_fragment_all_reviews"
+        tools:layout="@layout/_fragment_all_reviews" >
+        <action
+            android:id="@+id/action_fragment_all_reviews_to_addReview"
+            app:destination="@id/addReview" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieAvailabilityFragment"
+        android:name="com.example.moviebuzz.ui.movieAvalablity.MovieAvailabilityFragment"
+        android:label="fragment_movie_availability"
+        tools:layout="@layout/fragment_movie_availability" >
+        <action
+            android:id="@+id/action_movieAvailability_to_movieTicketsFragment"
+            app:destination="@id/movieTicketsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieTicketsFragment"
+        android:name="com.example.moviebuzz.ui.tickets.MovieTicketsFragment"
+        android:label="fragment_movie_tickets"
+        tools:layout="@layout/fragment_movie_tickets" >
+        <action
+            android:id="@+id/action_movieTicketsFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.example.moviebuzz.ui.payment.PaymentFragment"
+        android:label="fragment_payment"
+        tools:layout="@layout/fragment_payment" />
+    <fragment
+        android:id="@+id/addReview"
+        android:name="com.example.moviebuzz.ui.addReview.AddReview"
+        android:label="fragment_add_review"
+        tools:layout="@layout/fragment_add_review" />
+    <fragment
+        android:id="@+id/transactionHistoryFragment"
+        android:name="com.example.moviebuzz.ui.transactionHistory.TransactionHistoryFragment"
+        android:label="fragment_transaction_history"
+        tools:layout="@layout/fragment_transaction_history" />
+</navigation>

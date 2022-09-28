@@ -1,0 +1,4 @@
+
+r	java:S116"QRename this field "CityId" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ÖÐ¡ÿÿÿÿÿ8¯ÃÐ¡ª0
+p	java:S116"ORename this field "Name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(É¬­Áøÿÿÿÿ8°ÃÐ¡ª0
+o	java:S116"SRename this field "Location" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(È¬üý8°ÃÐ¡ª0

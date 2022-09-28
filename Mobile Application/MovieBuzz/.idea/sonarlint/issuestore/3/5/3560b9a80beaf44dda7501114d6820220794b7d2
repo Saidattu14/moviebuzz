@@ -1,0 +1,21 @@
+
+>
+java:S1604H"(Make this anonymous inner class a lambda(±Ä­”
+C
+java:S1604Q"(Make this anonymous inner class a lambda(¨´ëÈøÿÿÿÿ
+>
+java:S1604d"(Make this anonymous inner class a lambda(â¡‘İ
+?
+java:S1604œ"(Make this anonymous inner class a lambda(ÔÇó
+y
+java:S1450'"^Remove the "searchViewModel" field and declare it as a local variable in the relevant methods.(ë¶¡½şÿÿÿÿ
+h
+java:S3776>"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(¡Œşø
+R
+java:S1874A"7Remove this use of "FLAG_FULLSCREEN"; it is deprecated.(·†ùÿÿÿÿ
+1
+java:S3626j"Remove this redundant jump.(ûÁİ…
+N
+java:S1068'"3Remove this unused "searchViewModel" private field.(ë¶¡½şÿÿÿÿ
+N
+java:S1144¦"7Remove this unused private "showRegisterFailed" method.(Ë‹é‚

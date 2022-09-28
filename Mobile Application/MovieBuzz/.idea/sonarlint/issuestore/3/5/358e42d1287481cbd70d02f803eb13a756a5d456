@@ -1,0 +1,14 @@
+
+^	java:S107N"BConstructor has 15 parameters, which is greater than 7 authorized.(Ù˜ßâ8ÃÇÑ¡ª0
+l	java:S116"PRename this field "Title" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ã¨„æ8áÇÑ¡ª0
+r	java:S116"QRename this field "Poster" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Îüæùÿÿÿÿ8û°Ñ¡ª0
+o	java:S116"SRename this field "Released" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™Ñæˆ8û°Ñ¡ª0
+p	java:S116"ORename this field "Plot" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ñ·¤Úÿÿÿÿÿ8ãÇÑ¡ª0
+s	java:S116""RRename this field "Runtime" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œ¿ì¼ıÿÿÿÿ8äÇÑ¡ª0
+o	java:S116#"SRename this field "Language" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(îÄîÜ8ü°Ñ¡ª0
+q	java:S116$"PRename this field "Genre" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡ãÔùÿÿÿÿ8ı°Ñ¡ª0
+k	java:S116%"QRename this field "Cities" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø²Şçÿÿÿÿÿ
+f	java:S116&"QRename this field "Writer" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ê«¢“
+f	java:S116'"QRename this field "Actors" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´ƒ¹
+h	java:S116("SRename this field "Director" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„×Ä
+l	java:S116)"RRename this field "Country" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—‘úüÿÿÿÿ

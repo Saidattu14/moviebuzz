@@ -1,0 +1,33 @@
+
+k	java:S117J"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼´¦ñûÿÿÿÿ
+C
+java:S1604W"(Make this anonymous inner class a lambda(ÄØææúÿÿÿÿ
+F
+java:S1604¿"(Make this anonymous inner class a lambda(ÇËÄÜ8èÓ­İ·0
+K
+java:S1604Ø"(Make this anonymous inner class a lambda(——‘ùÿÿÿÿ8èÓ­İ·0
+n
+java:S1301Û"KReplace this "switch" statement by "if" statements to increase readability.(øå´¡ÿÿÿÿÿ8éÓ­İ·0
+‚
+java:S1488W"gImmediately return this expression instead of assigning it to the temporary variable "onCloseListener".(ÄØææúÿÿÿÿ
+†
+java:S1488f"kImmediately return this expression instead of assigning it to the temporary variable "onQueryTextListener".(ªÿÔÙşÿÿÿÿ
+
+java:S1488}"sImmediately return this expression instead of assigning it to the temporary variable "onAttachStateChangeListener".(ÈêÚˆşÿÿÿÿ
+”
+java:S1488¿"vImmediately return this expression instead of assigning it to the temporary variable "navigationItemSelectedListener".(ÇËÄÜ8‹è«İ·0
+’
+java:S1488Ø"oImmediately return this expression instead of assigning it to the temporary variable "onMenuItemClickListener".(——‘ùÿÿÿÿ8‹è«İ·0
+N	java:S106A"9Replace this use of System.out or System.err by a logger.(õÓ–ö
+P
+java:S1874I"5Remove this use of "getActionView"; it is deprecated.(¹•¼Âøÿÿÿÿ
+c
+java:S3252|"MUse static access with "android.view.View" for "OnAttachStateChangeListener".(‚—’·
+h
+java:S3252}"MUse static access with "android.view.View" for "OnAttachStateChangeListener".(ÈêÚˆşÿÿÿÿ
+œ
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ßšÖ¨ûÿÿÿÿ
+R	java:S125¢"<This block of commented-out lines of code should be removed.(Ä¾‰ë
+T	java:S106«"9Replace this use of System.out or System.err by a logger.(³ğ¸ûÿÿÿÿ
+S
+java:S1874İ"5Remove this use of "getActionView"; it is deprecated.(àïéº8ìÛ°İ·0

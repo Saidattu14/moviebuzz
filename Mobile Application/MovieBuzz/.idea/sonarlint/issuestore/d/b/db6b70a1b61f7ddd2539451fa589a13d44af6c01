@@ -1,0 +1,21 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ääÕ†úÿÿÿÿ
+C
+java:S1185<"(Remove this method to simply inherit it.(ßİš‘ùÿÿÿÿ
+N	java:S106E"9Replace this use of System.out or System.err by a logger.(Î³Ğ
+]
+java:S1858E"G"text" is already a string, there's no need to call "toString()" on it.(Î³Ğ
+S	java:S106L"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ
+N	java:S106Q"9Replace this use of System.out or System.err by a logger.(ıÊÉ£
+S	java:S106V"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ
+S	java:S106`"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ
+S	java:S106j"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ
+Z	java:S106t"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ8üĞàğ·0
+C
+java:S1185y"(Remove this method to simply inherit it.(ÎÜŠ‘ÿÿÿÿÿ
+C
+java:S1185~"(Remove this method to simply inherit it.(Ù±ÍÆşÿÿÿÿ
+?
+java:S1185ƒ"(Remove this method to simply inherit it.(¯›½¥
+?
+java:S1185ˆ"(Remove this method to simply inherit it.(ãğÒç

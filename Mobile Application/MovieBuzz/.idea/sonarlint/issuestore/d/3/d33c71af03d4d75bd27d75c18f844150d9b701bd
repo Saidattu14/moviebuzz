@@ -1,0 +1,15 @@
+
+j
+java:S1104	"TMake jwtToken a static final constant or non-public and provide accessors if needed.(ı¿©¶
+l
+java:S1104
+"VMake currentAPI a static final constant or non-public and provide accessors if needed.(Õ‡êã
+k
+java:S1104"UMake generType a static final constant or non-public and provide accessors if needed.(ÿµÆ
+q
+java:S1104"VMake searchText a static final constant or non-public and provide accessors if needed.(ßßüçıÿÿÿÿ
+p
+java:S1104"UMake userEmail a static final constant or non-public and provide accessors if needed.(õ¸´ûıÿÿÿÿ
+o
+java:S1104"RMake userId a static final constant or non-public and provide accessors if needed.(¨—˜Ğ8ÓÂ™ì·0
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ßèõ¢

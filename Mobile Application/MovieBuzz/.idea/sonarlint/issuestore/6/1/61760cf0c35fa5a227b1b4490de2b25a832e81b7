@@ -1,0 +1,8 @@
+
+^	java:S107"BConstructor has 12 parameters, which is greater than 7 authorized.(óÌÂ°8È‘ï·0
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óÌÂ°8È‘ï·0
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²Ø«¶8É‘ï·0
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(úÂò¯üÿÿÿÿ8äì‘ï·0
+v	java:S116"URename this field "theater_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óæÇÅùÿÿÿÿ8ª…ï·0
+n	java:S116"RRename this field "show_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«›…8ª…ï·0
+r	java:S116"WRename this field "theater_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(èÿÑ8ª…ï·0

@@ -1,0 +1,17 @@
+
+J
+java:S1066"/Merge this if statement with the enclosing one.(à±Åúÿÿÿÿ
+C
+java:S1604f"(Make this anonymous inner class a lambda(æì½Ãûÿÿÿÿ
+C
+java:S1604n"(Make this anonymous inner class a lambda(ÑÅ ñÿÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(à¸¯
+h
+java:S2259z"MA "NullPointerException" could be thrown; "theatersAdapter" is nullable here.(Úèˆ¤úÿÿÿÿ
+—
+java:S1186L"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(«û³±
+œ
+java:S1186Q"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ê¥¾àûÿÿÿÿ
+c
+java:S1858“"G"json" is already a string, there's no need to call "toString()" on it.(èŠ€‡ûÿÿÿÿ
+Q	java:S125²"<This block of commented-out lines of code should be removed.(ãÒé=

@@ -1,0 +1,7 @@
+
+s
+java:S1104	"QMake seats a static final constant or non-public and provide accessors if needed.(Ί“γϋÿÿÿÿ8ίω¦ι―0
+g
+java:S1104
+"QMake error a static final constant or non-public and provide accessors if needed.(¥©Ό
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ΰΈ―

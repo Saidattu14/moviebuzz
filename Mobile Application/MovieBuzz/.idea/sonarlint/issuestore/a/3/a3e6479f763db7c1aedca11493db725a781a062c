@@ -1,0 +1,14 @@
+
+K
+java:S1066ˆ"/Merge this if statement with the enclosing one.(êô‹àþÿÿÿÿ
+>
+java:S1604p"(Make this anonymous inner class a lambda(ëÝÕ­
+?
+java:S1604ƒ"(Make this anonymous inner class a lambda(ñ‚Œê
+{
+java:S1149›"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(³§ˆìüÿÿÿÿ
+{
+java:S1149›"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(³§ˆìüÿÿÿÿ
+Q	java:S125`"<This block of commented-out lines of code should be removed.(ìÂƒ‚
+V	java:S125u"<This block of commented-out lines of code should be removed.(é›º©ÿÿÿÿÿ
+N	java:S106x"9Replace this use of System.out or System.err by a logger.(ÁÚ« 

@@ -1,0 +1,18 @@
+
+s	java:S117„"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÉÀÁ©ûÿÿÿÿ8Æé·0
+E
+java:S1604M"(Make this anonymous inner class a lambda(•í˜ò8Çé·0
+E
+java:S1604X"(Make this anonymous inner class a lambda(Ğˆ¢Ä8Èé·0
+E
+java:S1604f"(Make this anonymous inner class a lambda(òåæù8Éé·0
+T
+java:S2589n"7Remove this expression which always evaluates to "true"(Ğ±‘8é é·0
+]	java:S125j"<This block of commented-out lines of code should be removed.(‘€Ûÿÿÿÿÿ8£¡é·0
+S	java:S106l"9Replace this use of System.out or System.err by a logger.(ÅÑÄ úÿÿÿÿ
+U	java:S106m"9Replace this use of System.out or System.err by a logger.(âáÕò8¤¡é·0
+Z	java:S106z"9Replace this use of System.out or System.err by a logger.(ØßÈ¼ÿÿÿÿÿ8§¡é·0
+j
+java:S1858“"G"json" is already a string, there's no need to call "toString()" on it.(èŠ€‡ûÿÿÿÿ8·¡é·0
+k	java:S100–"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êÀê8·¡é·0
+X	java:S125´"<This block of commented-out lines of code should be removed.(×Ò¼%8¼¡é·0

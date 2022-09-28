@@ -1,0 +1,18 @@
+
+k	java:S117A"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†°€õÿÿÿÿÿ
+>
+java:S1604B"(Make this anonymous inner class a lambda(§íŞ
+>
+java:S1604R"(Make this anonymous inner class a lambda(É‘²ï
+D
+java:S1604ƒ"(Make this anonymous inner class a lambda(«–Âæşÿÿÿÿ
+D
+java:S1604Œ"(Make this anonymous inner class a lambda(«Ø…àúÿÿÿÿ
+R
+java:S1874="7Remove this use of "FLAG_FULLSCREEN"; it is deprecated.(·†ùÿÿÿÿ
+1
+java:S3626W"Remove this redundant jump.(ûÁİ…
+N	java:S106Z"9Replace this use of System.out or System.err by a logger.(ı•Í
+V	java:S125["<This block of commented-out lines of code should be removed.(ÃÓ‘¨üÿÿÿÿ
+K
+java:S1144©"4Remove this unused private "showLoginFailed" method.(¸¢–Œ
