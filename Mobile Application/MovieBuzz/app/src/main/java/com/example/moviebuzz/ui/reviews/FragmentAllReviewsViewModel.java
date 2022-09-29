@@ -24,10 +24,7 @@ public class FragmentAllReviewsViewModel extends ViewModel {
 
     private final CompositeDisposable disposables = new CompositeDisposable();
 
-    public void clearDisposables()
-    {
-        this.disposables.clear();
-    }
+
 
     private final MutableLiveData<MovieReviewsResultData> movieReviewsResultDataLiveData= new MutableLiveData<>();
 
@@ -68,5 +65,10 @@ public class FragmentAllReviewsViewModel extends ViewModel {
         return Observable.defer(() -> {
             return Observable.just(movieReviewsResponseBody);
         });
+    }
+    public void clearDisposables()
+    {
+        this.disposables.clear();
+        movieReviewsResultDataLiveData.postValue(null);
     }
 }

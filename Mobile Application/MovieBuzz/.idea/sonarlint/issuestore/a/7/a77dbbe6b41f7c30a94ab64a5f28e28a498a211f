@@ -1,10 +1,0 @@
-
-~
-java:S1488"hImmediately return this expression instead of assigning it to the temporary variable "onScrollListener".(¡üª¡
-C
-java:S1185"(Remove this method to simply inherit it.(öûöºÿÿÿÿÿ
-O
-java:S1854-"9Remove this useless assignment to local variable "count".(Ø‘º›
-@
-java:S1481&"*Remove this unused "count" local variable.(æÕ¿¼
-X	java:S125*"<This block of commented-out lines of code should be removed.(ËÊíµ8¦ë€Á¸0

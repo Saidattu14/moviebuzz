@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.moviebuzz.R;
+import com.example.moviebuzz.ui.viewModel.MainViewModel;
 import com.example.moviebuzz.webSockets.WebSocketClass;
 import com.example.moviebuzz.webSockets.WebSocketEcho;
 import com.example.moviebuzz.adapters.MovieAllReviewsAdapter;
@@ -53,6 +54,7 @@ public class Fragment_all_reviews extends Fragment {
     WebSocketClass webSocketClass;
     private WebSocket webSocket;
     private WebSocketEcho webSocketEcho;
+    private MainViewModel mainViewModel;
 
 
     @Override
@@ -61,12 +63,12 @@ public class Fragment_all_reviews extends Fragment {
         binding =  FragmentAllReviewsBinding.inflate(inflater, container, false);
         movieViewModel = new ViewModelProvider(requireActivity()).get(MovieViewModel.class);
         searchViewModel = new ViewModelProvider(requireActivity()).get(SearchViewModel.class);
+        mainViewModel =  new ViewModelProvider(requireActivity()).get(MainViewModel.class);
         allReviewsViewModel =  new ViewModelProvider(requireActivity()).get(FragmentAllReviewsViewModel.class);
         webSocket = webSocketClass.getWebSocket();
         webSocketEcho = webSocketClass.getWebSocketEcho();
         webSocketEcho.setAllReviewsViewModel(allReviewsViewModel);
         return binding.getRoot();
-
     }
 
     @Override
@@ -103,17 +105,16 @@ public class Fragment_all_reviews extends Fragment {
         allReviewsViewModel.getLiveMovieReviews().observe(getViewLifecycleOwner(), new Observer<MovieReviewsResultData>() {
             @Override
             public void onChanged(MovieReviewsResultData movieReviewsResultData) {
-                if(movieReviewsResultData.getError() == null)
-                {
-                    MovieAllReviewsAdapter movieAllReviewsAdapter = new MovieAllReviewsAdapter(movieReviewsResultData.getMovieReviewsData());
-                    binding.allReviewsRecycle.setAdapter(movieAllReviewsAdapter);
-                    binding.loading.setVisibility(View.INVISIBLE);
-                    binding.floatingActionButton.setVisibility(View.VISIBLE);
-                }
-                else
-                {
-                    binding.reviewsResult.setText("Sorry Try again Later");
-                    binding.loading.setVisibility(View.INVISIBLE);
+                if(movieReviewsResultData != null) {
+                    if (movieReviewsResultData.getError() == null) {
+                        MovieAllReviewsAdapter movieAllReviewsAdapter = new MovieAllReviewsAdapter(movieReviewsResultData.getMovieReviewsData());
+                        binding.allReviewsRecycle.setAdapter(movieAllReviewsAdapter);
+                        binding.loading.setVisibility(View.INVISIBLE);
+                        binding.floatingActionButton.setVisibility(View.VISIBLE);
+                    } else {
+                        binding.reviewsResult.setText("Sorry Try again Later");
+                        binding.loading.setVisibility(View.INVISIBLE);
+                    }
                 }
             }
         });
@@ -123,7 +124,8 @@ public class Fragment_all_reviews extends Fragment {
         MovieReviewsRequestModel movieReviewsRequestModel = new MovieReviewsRequestModel(
                 UUID.randomUUID(),
                 "GetReviews",
-                movieId);
+                movieId,
+                mainViewModel.getToken());
         Gson gson = new Gson();
         String json = gson.toJson(movieReviewsRequestModel, MovieReviewsRequestModel.class);
         webSocket.send(json.toString());
@@ -142,6 +144,7 @@ public class Fragment_all_reviews extends Fragment {
         }
         catch (Exception e)
         {
+            binding.loading.setVisibility(View.VISIBLE);
             sendMsg(searchMoviesResponse.get_source().getImdbID());
         }
     }
@@ -150,5 +153,6 @@ public class Fragment_all_reviews extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+        allReviewsViewModel.clearDisposables();
     }
 }

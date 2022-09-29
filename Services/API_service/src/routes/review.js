@@ -67,9 +67,10 @@ router.post(
     try {
       let result = await checkJwtToken(request);
       console.log(result)
+      console.log(request.body)
       if(result)
       {
-        kafka.addReviewEvent(data.body,(err) => {
+        kafka.addReviewEvent(request.body,(err) => {
           console.log(err)
         })
         return response.status(201).json("OK");
@@ -98,7 +99,7 @@ router.delete(
       let result = await checkJwtToken(request);
       if(result)
       {
-        kafka.deleteReviewEvent(data.body,(err) => {
+        kafka.deleteReviewEvent(request.body,(err) => {
           console.log(err)
         })
         return response.status(201).send('OK');

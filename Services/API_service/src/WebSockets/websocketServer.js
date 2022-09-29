@@ -22,6 +22,7 @@ const checkJwtToken = async(token) => {
 const sendEvents = async(data,connection) => {
   try {
     let result = await checkJwtToken(data.token);
+    console.log(result)
     delete data.token;
     if(data.requestType == "ValidateSelectedTickets" && result)
     {
@@ -43,6 +44,7 @@ const sendEvents = async(data,connection) => {
     }
     else if(data.requestType == "GetReviews" && result)
     {
+      console.log("hello")
       movieReviewsKafkaProducer.getReviewsEvent(data,(err) => {
         console.log(err);
       })
