@@ -1,12 +1,14 @@
 package com.example.moviebuzz.data.model;
 
+import java.util.UUID;
+
 public class MovieReviewsRequestModel {
 
-    String requestId;
+    UUID requestId;
     String requestType;
     String movieId;
 
-    public MovieReviewsRequestModel(String requestId, String requestType, String movieId) {
+    public MovieReviewsRequestModel(UUID requestId, String requestType, String movieId) {
         this.requestId = requestId;
         this.requestType = requestType;
         this.movieId = movieId;

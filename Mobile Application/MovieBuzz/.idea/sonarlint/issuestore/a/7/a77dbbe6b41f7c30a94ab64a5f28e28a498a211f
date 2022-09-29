@@ -7,6 +7,4 @@ O
 java:S1854-"9Remove this useless assignment to local variable "count".(Ø‘º›
 @
 java:S1481&"*Remove this unused "count" local variable.(æÕ¿¼
-N	java:S106*"9Replace this use of System.out or System.err by a logger.(ÛªþÁ
-]	java:S1259"<This block of commented-out lines of code should be removed.(Êˆê‡þÿÿÿÿ8†Þ¶á¶0
-X	java:S125?"<This block of commented-out lines of code should be removed.(¦ã¡”8Ä¸¶á¶0
+X	java:S125*"<This block of commented-out lines of code should be removed.(ËÊíµ8¦ë€Á¸0

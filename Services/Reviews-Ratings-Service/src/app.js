@@ -15,23 +15,23 @@ async function run() {
 
 async function update_review(data)
 {
-  await movies.updateOne({movie_id: data.movieId},
+  await movies.updateOne({movieId: data.movieId},
     {
        $set : {"reviews.$[elem].review" : data.review}
     },
     {
-      arrayFilters : [{"elem.review_id" : data.reviewId}]
+      arrayFilters : [{"elem.reviewId" : data.reviewId}]
     }).then(() => console.log("Review Added")).catch(err => console.error(err))
 }
 
 async function add_review(data)
 {
   try {
-    await movies.findOneAndUpdate({movie_id : data.movieId},
+    await movies.findOneAndUpdate({movieId : data.movieId},
       {
         $push: {
           reviews : {
-            review_id : uuidv4(), 
+            reviewId : uuidv4(), 
             review : data.review,
             username : data.username,
             rating :  data.rating
@@ -45,11 +45,11 @@ async function add_review(data)
 }
 async function delete_review(data)
 {
-  await movies.updateOne({movie_id : data.movieId},
+  await movies.updateOne({movieId : data.movieId},
     {
       $pull: {
         reviews : {
-          review_id : data.reviewId,
+          reviewId : data.reviewId,
         }
       }
     }).then(() => console.log("Review Deleted")).catch(err => console.error(err))
@@ -59,10 +59,10 @@ async function delete_review(data)
 async function get_reviews(data)
 {
   try {
-    const movies_data = await movies.find({movie_id : data.movieId});
+    const moviesData = await movies.find({movieId : data.movieId});
     //console.log(movies_data)
     let result = {
-      "reviews" : movies_data[0].reviews,
+      "reviews" : moviesData[0].reviews,
       "requestId" : data.requestId,
       "movieId" : data.movieId
     }

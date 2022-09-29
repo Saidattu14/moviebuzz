@@ -39,6 +39,7 @@ public class SearchSource {
     private List<MainData> Actors;
     private List<MainData> Director;
     private List<MainData> Country;
+    private List<MovieReviewsModel> Reviews;
 
     public SearchSource() {
     }
@@ -75,7 +76,12 @@ public class SearchSource {
         return this.Country;
     }
 
-    public SearchSource(String title, String poster, String released, String imdbID, String plot, float imdbRating, int imdbVotes, String runtime, String language, List<GenreMain> genre, List<CitiesData> cities, List<MainData> writer, List<MainData> actors, List<MainData> director, List<MainData> country) {
+    public SearchSource(String title, String poster, String released,
+                        String imdbID, String plot, float imdbRating, int imdbVotes,
+                        String runtime, String language,
+                        List<GenreMain> genre, List<CitiesData> cities,
+                        List<MainData> writer, List<MainData> actors, List<MainData> director,
+                        List<MainData> country,List<MovieReviewsModel> reviews) {
          this.Title = title;
          this.Poster = poster;
          this.Released = released;
@@ -91,6 +97,11 @@ public class SearchSource {
          this.Actors = actors;
          this.Director = director;
          this.Country = country;
+         this.Reviews = reviews;
+    }
+
+    public List<MovieReviewsModel> getReviews() {
+        return Reviews;
     }
 
     public String getReleased() {

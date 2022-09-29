@@ -121,7 +121,7 @@ public class Fragment_all_reviews extends Fragment {
 
     private void sendMsg(String movieId){
         MovieReviewsRequestModel movieReviewsRequestModel = new MovieReviewsRequestModel(
-                UUID.randomUUID().toString(),
+                UUID.randomUUID(),
                 "GetReviews",
                 movieId);
         Gson gson = new Gson();

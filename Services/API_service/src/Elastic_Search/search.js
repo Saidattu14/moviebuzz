@@ -8,7 +8,7 @@ let pr = new Promise(async(resolve,reject) => {
           size : size,
           body: {
             "_source": ["Title","Released","Poster","Runtime","Genre","Actors","Writer",
-            "Director","Plot","Language","imdbRating","imdbVotes","imdbID","Cities","Country"],
+            "Director","Plot","Language","imdbRating","imdbVotes","imdbID","Cities","Country","Reviews"],
             "query": {
               "bool" : {
                 "must" : [
@@ -54,7 +54,7 @@ const searchMoviesByRating = async(size,from) => {
       size : size,
       body: {
         "_source": ["Title","Released","Poster","Runtime","Genre","Actors","Writer",
-        "Director","Plot","Language","imdbRating","imdbVotes","imdbID","Cities","Country"],
+        "Director","Plot","Language","imdbRating","imdbVotes","imdbID","Cities","Country","Reviews"],
         "query": {
          "match_all" : {}
       },
@@ -84,7 +84,7 @@ const searchMovieByCountry = async(country_name,from,size) => {
       size : size,
       body: {
         "_source": ["Title","Released","Poster","Runtime","Genre","Actors","Writer",
-        "Director","Plot","Language","imdbRating","imdbVotes","imdbID","Cities","Country"],
+        "Director","Plot","Language","imdbRating","imdbVotes","imdbID","Cities","Country","Reviews"],
         "query" : {
             "nested" : {
               "path" : "Country",
@@ -117,7 +117,7 @@ const searchMostPopularMovies = async(size,from) => {
       size : size,
       body: {
         "_source": ["Title","Released","Poster","Runtime","Genre","Actors","Writer",
-        "Director","Plot","Language","imdbRating","imdbVotes","imdbID","Cities","Country"],
+        "Director","Plot","Language","imdbRating","imdbVotes","imdbID","Cities","Country","Reviews"],
         "query": {
          "match_all" : {}    
          },
@@ -147,7 +147,8 @@ const searchMovieByCountryCity = async(country_name,city_name,req) => {
     await client.search({
       index: index,
       body: {
-        "_source": ["Title*","Released*","Poster*"],
+        "_source": ["Title","Released","Poster","Runtime","Genre","Actors","Writer",
+        "Director","Plot","Language","imdbRating","imdbVotes","imdbID","Cities","Country","Reviews"],
         "query": {
           "nested" : {
             "path" : "Cities",
@@ -184,6 +185,7 @@ const searchMovieByCountryCity = async(country_name,city_name,req) => {
 
 const searchMovieByCountryLocation = async(country_name,lat,lon,distance,from,size) => {
   country_name = country_name.toLowerCase();
+  //console.log(lat,lon,country_name)
   let index = crypto.createHash('md5').update(country_name.toString()).digest("hex");
   let pr = new Promise(async(resolve,reject) => {
     await client.search({
@@ -192,7 +194,7 @@ const searchMovieByCountryLocation = async(country_name,lat,lon,distance,from,si
       size : size,
       body: {
         "_source": ["Title","Released","Poster","Runtime","Genre","Actors","Writer",
-        "Director","Plot","Language","imdbRating","imdbVotes","imdbID","Cities","Country"],
+        "Director","Plot","Language","imdbRating","imdbVotes","imdbID","Cities","Country","Reviews"],
         "query": {
           "nested": {
             "path" : "Cities",
@@ -219,14 +221,17 @@ const searchMovieByCountryLocation = async(country_name,lat,lon,distance,from,si
     }).then(function(resp) {
       let arr = []
       try {
-        let inner_hits_data = resp.body.hits.hits[0].inner_hits.Cities.hits.hits[0]._source;
-        for(let i in resp.body.hits.hits)
+        if(resp.body.hits.hits[0] != undefined)
         {
-          let data = resp.body.hits.hits[i];
-          //console.log(data)
-          data._source.Cities = [inner_hits_data];
-          delete data.inner_hits;
-          arr.push(data)
+          let inner_hits_data = resp.body.hits.hits[0].inner_hits.Cities.hits.hits[0]._source;
+          for(let i in resp.body.hits.hits)
+          {
+            let data = resp.body.hits.hits[i];
+            //console.log(data)
+            data._source.Cities = [inner_hits_data];
+            delete data.inner_hits;
+            arr.push(data)
+          }
         }
       } catch (error) {
         console.log(error)
@@ -248,6 +253,8 @@ const wildCardSearchOnCastDirectorsWriters = async(name,from,size) => {
       from: from,
       size : size,
       body: {
+        "_source": ["Title","Released","Poster","Runtime","Genre","Actors","Writer",
+        "Director","Plot","Language","imdbRating","imdbVotes","imdbID","Cities","Country","Reviews"],
           "query" : {
             "bool" : {
                 "should" : [
@@ -311,6 +318,8 @@ const wildCardSearchOnAllFields = async(name,from,size) => {
       from: from,
       size : size,
       body: {
+        "_source": ["Title","Released","Poster","Runtime","Genre","Actors","Writer",
+        "Director","Plot","Language","imdbRating","imdbVotes","imdbID","Cities","Country","Reviews"],
           "query" : {
             "bool" : {
                 "should" : [

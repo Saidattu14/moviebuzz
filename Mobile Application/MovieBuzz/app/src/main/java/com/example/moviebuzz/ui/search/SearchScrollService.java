@@ -39,7 +39,7 @@ public class SearchScrollService {
                 int scrollPosition = searchFragment.getScrollPosition();
                 SearchApiEnum searchApiEnumValue = searchFragment.getSearchApiEnumValue();
                 boolean previousSearchResponse = searchFragment.isSearchPrevResultsResponse();
-                System.out.println(scrollPosition);
+                //System.out.println(scrollPosition);
                 SearchDataMoviesAdapter searchDataMoviesAdapter = (SearchDataMoviesAdapter) binding.moviesList.getAdapter();
                 if(searchDataMoviesAdapter != null && previousSearchResponse) {
                     count = searchDataMoviesAdapter.getItemCount();
@@ -51,17 +51,12 @@ public class SearchScrollService {
                             searchApiCallService.searchWithOutLocationBased();
                         } else if (searchApiEnumValue == SearchApiEnum.Other) {
                             searchApiCallService.searchWildCard();
-                        }
-                        else
-                        {
-                            //System.out.println(searchApiEnumValue);
+                        } else if(searchApiEnumValue == SearchApiEnum.Popular_Movies_Search) {
+                            searchApiCallService.searchWithOutLocationBased();
+                        } else if(searchApiEnumValue == SearchApiEnum.Rated_Movies_Search) {
+                            searchApiCallService.searchWithOutLocationBased();
                         }
                     }
-                }
-                else
-                {
-                    //System.out.println(searchDataMoviesAdapter);
-                    //System.out.println(previousSearchResponse);
                 }
             }
         };

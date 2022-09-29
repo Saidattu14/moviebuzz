@@ -5,12 +5,12 @@ import java.util.UUID;
 
 public class MovieReviewsResponseBody {
 
-    String request_id;
+    UUID requestId;
     List<MovieReviewsModel> reviews;
     String movieId;
-    public MovieReviewsResponseBody(String request_id, List<MovieReviewsModel> reviews,String movieId) {
+    public MovieReviewsResponseBody(UUID requestId, List<MovieReviewsModel> reviews,String movieId) {
 
-        this.request_id = request_id;
+        this.requestId = requestId;
         this.reviews = reviews;
         this.movieId = movieId;
     }
@@ -23,7 +23,7 @@ public class MovieReviewsResponseBody {
         return this.reviews;
     }
 
-    public String getRequest_id() {
-        return this.request_id;
+    public UUID getRequestId() {
+        return requestId;
     }
 }

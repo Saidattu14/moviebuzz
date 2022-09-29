@@ -26,13 +26,12 @@ async function run() {
 }
 async function add_review(data)
 {
-
   try {
-    await movies.findOneAndUpdate({movie_id : data.movie_id},
+    await movies.findOneAndUpdate({movieId : data.movieId},
       {
         $push: {
           reviews : {
-            review_id :  data.review_id,
+            reviewId :  data.review_id,
             username :   data.username,
             review :     data.review,
             rating :     data.rating
@@ -44,22 +43,7 @@ async function add_review(data)
     console.log(error)
   }
 }
-async function delete_review(data)
-{
-  try {
-    await movies.updateOne({movie_id : data.movie_id},
-      {
-        $pull : {
-          reviews : {
-            review_id : data.text
-          },
-        },
-      })
-  } catch (error) {
-  console.log(error)
-}
-    
-}
+
 
 
 const random = (min = 0, max = 50) => {
@@ -85,8 +69,8 @@ const add_positive_reviews = async(index,num) => {
          if(positive_dict[random_number] == undefined)
          {
            let obj = {
-                 "movie_id" : movies_data[index].imdbID,
-                 "review_id" :  uuidv4(),
+                 "movieId" : movies_data[index].imdbID,
+                 "reviewId" :  uuidv4(),
                  "username" : '',
                  "review" : positive_reviews[random_number],
                  "rating" : random(parseInt(movies_data[index].imdbRating),10)
@@ -120,8 +104,8 @@ const add_negative_reviews = async(index,num) => {
           if(negative_dict[random_number] == undefined)
           {
             let obj = {
-                  "movie_id" : movies_data[index].imdbID,
-                  "review_id" :   uuidv4(),
+                  "movieId" : movies_data[index].imdbID,
+                  "reviewId" :   uuidv4(),
                   "username" : '',
                   "review" : negative_reviews[random_number],
                   "rating" : random(0,parseInt(movies_data[index].imdbRating))
@@ -158,8 +142,8 @@ async function add_movies()
            let arr2 =  await add_negative_reviews(i,num);
            let arr3 = arr1.concat(arr2);
            let data = new movies({
-            movie_name : movies_data[i].Title,
-            movie_id : movies_data[i].imdbID,
+            movieName : movies_data[i].Title,
+            movieId : movies_data[i].imdbID,
             reviews : arr3,
            });
            await data.save();

@@ -24,11 +24,9 @@ app.use(cors());
 app.use('/api/v1', routes);
 
 
-
 async function sendResponseData(data) 
 {
   try {
-     
     let connection = websocketClients.getClient(data.requestId);
     websocketClients.sendDataToClient(connection,data);
     websocketClients.removeRequest(data.requestId)
@@ -38,7 +36,6 @@ async function sendResponseData(data)
 }
 
 kafkaConsumer.consumer.connect();
-
 kafkaConsumer.consumer.on('ready', () => {
   console.log('Kafka Consumer Connected')
   kafkaConsumer.consumer.subscribe(['ResponseTheatersTicketsDetailsTopic','ResponseTransactionalStorageTopic',
@@ -67,7 +64,6 @@ kafkaConsumer.consumer.on('ready', () => {
         }
         else if(event_type == "bookingValidationResponse")
         {
-          console.log(message.payload.booking_data)
           await sendResponseData(message.payload);
           kafkaConsumer.consumer.commitMessage(data);
         }

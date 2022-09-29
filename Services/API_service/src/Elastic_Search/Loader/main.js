@@ -2,10 +2,11 @@ const { Client } = require('@elastic/elasticsearch');
 const client = new Client({ node: 'http://localhost:9200' })
 const movies = require('../JsonFiles/Movies_main.json').Movies;
 const country_and_states_cities = require('../JsonFiles/countries+states+cities.json');
-const EventEmitter = require('events');
+const movies_data = require('../JsonFiles/movies_city.json').Movies;
+const positive_reviews = require('../JsonFiles/postiveReviews - Formatted.json').positive_reviews;
+const negative_reviews = require('../JsonFiles/negativeReviews - Formatted.json').negative_reviews;
 var crypto = require('crypto');
-const emitter = new EventEmitter()
-emitter.setMaxListeners(500);
+const {v4 : uuidv4} = require('uuid');
 
 const add_index_value = async(index,body) => {
     let pr = new Promise(async(resolve,reject) => {
@@ -162,6 +163,15 @@ const putMapping = async(index) => {
                               "type" : "geo_point",
                          },
                     }
+                },
+                "Reviews" : {
+                    "type" : "nested",
+                    "properties" : {
+                        "reviewId" :  {"type" :"keyword"},
+                        "username" : {"type" : "keyword"},
+                        "review" :     {"type" : "keyword"},
+                        "rating" :    {"type" : "keyword"}
+                    }
                 }
             }, 
           }
@@ -252,7 +262,7 @@ const delete_index = async(index) => {
         return err;
     });
 }
-const random = (min = 0, max = 50) => {
+const random = (min, max) => {
     let num = Math.random() * (max - min) + min;
     return Math.round(num);
 }
@@ -334,7 +344,6 @@ const getIndex = async(count,data) => {
     }).catch((err) => {
         return err;
     });
-    
 }
 
 
@@ -399,5 +408,135 @@ const indexing = async() => {
     }
 }
 
+const add_positive_reviews = async(rating,num) => {
+    try {
+      let positive_count = num;
+      let positive_dict = {};
+      let arr = []
+      for(let j=0; j<positive_count; j++)
+      {
+         let random_number = random(0,positive_count);
+         if(positive_dict[random_number] == undefined)
+         {
+           let obj = {
+                 "reviewId" :  uuidv4(),
+                 "username" : "",
+                 "review" : positive_reviews[random_number],
+                 "rating" : random(parseInt(rating),10)
+           }
+           positive_dict[random_number] = 0;
+           arr.push(obj);
+         }
+         else
+         {
+          j = j - 1;
+         }
+       }
+       return arr;
+    } catch (error) {
+      console.log(error);
+    }
+      return []
+}
+
+
+const add_negative_reviews = async(rating,num) => {
+     
+      try {
+        let negative_count = num;
+        let negative_dict = {}
+        let arr = []
+        for(let j=0; j<negative_count; j++)
+        {
+          let random_number = random(0,negative_reviews.length);
+          if(negative_dict[random_number] == undefined)
+          {
+            let obj = {
+                  "reviewId" :   uuidv4(),
+                  "username" : "",
+                  "review" : negative_reviews[random_number],
+                  "rating" : random(0,parseInt(rating))
+            }
+            negative_dict[random_number] = 0;
+            arr.push(obj)
+          }
+          else
+          {
+            j = j - 1;
+          }
+        }
+        return arr;
+      } catch (error) {
+        console.log(error); 
+      }   
+      return []
+}
+
+const generateReviews = async(source) => {
+    let num = parseInt(source.imdbRating)
+    if(num !=0 && source.Response != 'False')
+    {
+        let arr1 = await add_positive_reviews(source.imdbRating,3);
+        let arr2 =  await add_negative_reviews(source.imdbRating,2);
+        let arr3 = arr1.concat(arr2);
+        return arr3;
+    }
+    return []
+}
+
+const getAll = async() => {
+   const a =  await client.search({
+        index: '_all',
+        body: {
+            "query" : {
+                "match_all" : {}
+            }
+        }
+    })
+    // let list = a.body.hits.hits;
+    // for(let i=0; i<list.length; i++)
+    // {
+    //     console.log(list[i]._source.Reviews)
+    // }
+
+}
+
+const indexing1 = async() => {
+    try {
+        await delete_all_indexs();
+        await clusterSettings();
+    } catch (error) {
+        console.log(error)
+    }
+    //await getAll()
+    for(let i=0 ; i<movies_data.length; i++)
+    {
+        let source = movies_data[i]._source;
+        if(source.Response != 'False') {
+        let count = 0;
+        for(let j in movies[i].Country)
+        {
+            count = count + 1;
+        }
+        let reviews = await generateReviews(source);
+        source.Reviews = reviews;
+       
+        try {
+            let index = await getIndex(count,source)
+            let response = await check_index_exits(index);
+            if(response.statusCode == 404)
+            {
+                await create_index(index);
+                await putMapping(index);
+            }
+            await add_index_value(index,source)
+            //console.log(index)
+            console.log('Document ' +i+ ' Added')
+        } catch (error) {
+            console.log(error)
+        }   
+       }
+    }
+}
 console.log('Data Loading')
-indexing();
+indexing1();

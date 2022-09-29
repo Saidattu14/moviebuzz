@@ -67,24 +67,13 @@ public class MovieFragment extends Fragment {
             binding.movieRuntime2.setText(searchMoviesResponse.get_source().getRuntime());
             binding.movieReleaseDate2.setText(searchMoviesResponse.get_source().getReleased());
             binding.movieLanguage2.setText(searchMoviesResponse.get_source().getLanguage());
-            binding.movieLanguage2.setText(searchMoviesResponse.get_source().getLanguage());
             setUpCastRecycleView(searchMoviesResponse.get_source().getActors());
             setUpDirectorsRecycleView(searchMoviesResponse.get_source().getDirector());
             setUpWritersRecycleView(searchMoviesResponse.get_source().getWriter());
             setUpGenresRecycleView(searchMoviesResponse.get_source().getGenre());
             setUpCountryRecycleView(searchMoviesResponse.get_source().getCountry());
-            setPoster(searchMoviesResponse);
-            MovieReviewsAdapter movieReviewsAdapter = (MovieReviewsAdapter) binding.movieReviewsRecyclerView.getAdapter();
-            List<MovieReviewsModel> movieReviewsModelList = new ArrayList<>();
-            for(int i=0; i<5;i++)
-            {
-                String username = "Sai" + Integer.toString(i);
-                String comment = "Nice" + Integer.toString(i);
-                MovieReviewsModel movieReviewsModel = new MovieReviewsModel(comment,username,i+1*10,"d","s");
-                movieReviewsModelList.add(movieReviewsModel);
-            }
-            movieReviewsAdapter = new MovieReviewsAdapter(movieReviewsModelList);
-            binding.movieReviewsRecyclerView.setAdapter(movieReviewsAdapter);
+            setPoster(searchMoviesResponse.get_source().getPoster());
+            setReviewsRecycleView(searchMoviesResponse.get_source().getReviews());
         });
 
         binding.movieReviewsSeeAll.setOnClickListener(new View.OnClickListener() {
@@ -102,7 +91,7 @@ public class MovieFragment extends Fragment {
         });
     }
 
-    public void setUpCastRecycleView(List<MainData> castList)
+    private void setUpCastRecycleView(List<MainData> castList)
     {
        CastListAdapter adapter = (CastListAdapter) binding.movieCastRecyclerView.getAdapter();
        if(adapter == null)
@@ -112,7 +101,7 @@ public class MovieFragment extends Fragment {
        }
     }
 
-    public void setUpDirectorsRecycleView(List<MainData> directorsList)
+    private void setUpDirectorsRecycleView(List<MainData> directorsList)
     {
         DirectorsListAdapter adapter = (DirectorsListAdapter) binding.movieDirectorsRecyclerView.getAdapter();
         if(adapter == null)
@@ -122,7 +111,7 @@ public class MovieFragment extends Fragment {
         }
     }
 
-    public void setUpWritersRecycleView(List<MainData> writersList)
+    private void setUpWritersRecycleView(List<MainData> writersList)
     {
         WritersListAdapter adapter = (WritersListAdapter) binding.movieWritersRecyclerView.getAdapter();
         if(adapter == null)
@@ -132,7 +121,7 @@ public class MovieFragment extends Fragment {
         }
     }
 
-    public void setUpGenresRecycleView(List<GenreMain> genreList)
+    private void setUpGenresRecycleView(List<GenreMain> genreList)
     {
         GenreListAdapter adapter = (GenreListAdapter) binding.movieGenreRecyclerView.getAdapter();
         if(adapter == null)
@@ -142,7 +131,7 @@ public class MovieFragment extends Fragment {
         }
     }
 
-    public void setUpCountryRecycleView(List<MainData> list)
+    private void setUpCountryRecycleView(List<MainData> list)
     {
         CountryListAdapter adapter = (CountryListAdapter) binding.movieCountry2.getAdapter();
         if(adapter == null)
@@ -152,13 +141,13 @@ public class MovieFragment extends Fragment {
         }
     }
 
-    public void navigateToMovieAvailability()
+    private void navigateToMovieAvailability()
     {
         NavHostFragment.findNavController(MovieFragment.this)
                 .navigate(R.id.action_movieFragment_to_movieAvailability);
     }
 
-    public void clearPreviousData()
+    private void clearPreviousData()
     {
         searchViewModel.clearPreviousSearchData();
         searchViewModel.setCurrentResult();
@@ -194,7 +183,7 @@ public class MovieFragment extends Fragment {
                 .navigate(R.id.action_movieFragment_to_searchFragment);
     }
 
-    public void backButtonPressed()
+    private void backButtonPressed()
     {
         OnBackPressedCallback callback = new OnBackPressedCallback(true) {
             @Override
@@ -208,11 +197,20 @@ public class MovieFragment extends Fragment {
     }
 
 
-    public void setPoster(SearchMoviesResponse searchMoviesResponse)
+    private void setPoster(String poster)
     {
         ImageView imageView = binding.movieposter;
-        Picasso.get().load(searchMoviesResponse.get_source().getPoster())
+        Picasso.get().load(poster)
                 .into(imageView);
+    }
+
+    private void setReviewsRecycleView( List<MovieReviewsModel> movieReviewsModelList)
+    {
+        if(movieReviewsModelList != null)
+        {
+            MovieReviewsAdapter movieReviewsAdapter =  new MovieReviewsAdapter(movieReviewsModelList);
+            binding.movieReviewsRecyclerView.setAdapter(movieReviewsAdapter);
+        }
     }
 
     @Override
