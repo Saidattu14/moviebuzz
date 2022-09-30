@@ -123,24 +123,3 @@ const getTheatersCityDict = () => {
   }
   return dict;
 }
-
-
-// let mv = 0;
-// for(let i=0; i<movie_data.length;i++)
-// {
-//     let src = movie_data[i]._source;
-//     if(src.Year > 2015)
-//     {
-//       mv = mv + src.Cities.length;
-//     }
-// }
-
-// let a = 0;
-// for(let i=0; i<CountryStatesCity_data.length; i++)
-// {
-//     for(let j=0; j<CountryStatesCity_data[i].states.length;j++)
-//     {
-//         a = a + CountryStatesCity_data[i].states[j].cities.length;   
-//     }
-// }
-// console.log(mv)
