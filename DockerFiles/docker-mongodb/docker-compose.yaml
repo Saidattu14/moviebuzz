@@ -1,0 +1,13 @@
+version: '2'
+services:
+  mongo:
+    image: mongo:4.2.5
+    hostname: mongo
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: 'mongo-user'
+      MONGO_INITDB_ROOT_PASSWORD: 'mongo-pw'
+    volumes:
+      - ./database:/data/db
