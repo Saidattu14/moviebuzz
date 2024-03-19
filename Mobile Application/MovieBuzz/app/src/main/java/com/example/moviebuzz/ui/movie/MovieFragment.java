@@ -23,6 +23,7 @@ import com.example.moviebuzz.adapters.GenreListAdapter;
 import com.example.moviebuzz.adapters.MovieReviewsAdapter;
 import com.example.moviebuzz.adapters.WritersListAdapter;
 import com.example.moviebuzz.data.enums.SearchApiEnum;
+import com.example.moviebuzz.data.model.CountryData;
 import com.example.moviebuzz.data.model.GenreMain;
 import com.example.moviebuzz.data.model.MainData;
 import com.example.moviebuzz.data.model.MovieReviewsModel;
@@ -131,7 +132,7 @@ public class MovieFragment extends Fragment {
         }
     }
 
-    private void setUpCountryRecycleView(List<MainData> list)
+    private void setUpCountryRecycleView(List<CountryData> list)
     {
         CountryListAdapter adapter = (CountryListAdapter) binding.movieCountry2.getAdapter();
         if(adapter == null)
@@ -164,6 +165,7 @@ public class MovieFragment extends Fragment {
     {
         double dummyValue = 1.1;
         clearPreviousData();
+        mainViewModel.setSearchText(countryName);
         mainViewModel.setApiEnum(searchApiEnum);
         searchViewModel.moviesSearchAPIRequest(jwtToken,searchApiEnum,countryName,dummyValue,dummyValue,null,0);
     }
@@ -193,7 +195,7 @@ public class MovieFragment extends Fragment {
                         .popBackStack();
             }
         };
-        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
     }
 
 
@@ -208,7 +210,8 @@ public class MovieFragment extends Fragment {
     {
         if(movieReviewsModelList != null)
         {
-            MovieReviewsAdapter movieReviewsAdapter =  new MovieReviewsAdapter(movieReviewsModelList);
+
+            MovieReviewsAdapter movieReviewsAdapter =  new MovieReviewsAdapter(movieReviewsModelList,movieViewModel,jwtToken);
             binding.movieReviewsRecyclerView.setAdapter(movieReviewsAdapter);
         }
     }

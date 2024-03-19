@@ -3,90 +3,160 @@
 xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<androidx.cardview.widget.CardView
-    android:id="@+id/cardView"
-    android:layout_width="match_parent"
-    android:layout_height="250dp"
-    android:background="@drawable/theaters_boarder"
-    app:cardElevation="5dp"
-    app:cardCornerRadius="5dp"
-    android:layout_margin="5dp"
-    app:cardMaxElevation="10dp"
-    app:cardPreventCornerOverlap="true"
-    app:cardUseCompatPadding="true"
-    tools:ignore="ExtraText">
-
-    <RelativeLayout
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="400dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/theaters_boarder"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        app:cardMaxElevation="10dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        tools:ignore="ExtraText">
 
         <RelativeLayout
-            android:id="@+id/ct"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/usericon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="5dp"
-                android:contentDescription="@string/movieposter"
-                android:src="@drawable/ic_round_account_circle_24" />
-
-            <TextView
-                android:id="@+id/username"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_toEndOf="@+id/usericon"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="17sp"
-                android:textStyle="italic"
-                tools:text="Name" />
-
-            <TextView
-                android:id="@+id/likedPercent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="30dp"
-                android:gravity="end"
-                android:textColor="@color/black"
-                android:textSize="17sp"
-                android:textStyle="italic"
-                tools:text="Name" />
-
-            <ImageView
-                android:id="@+id/likedIcon"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="12.5dp"
-                android:layout_marginTop="12.5dp"
-                android:layout_marginEnd="3dp"
-                android:layout_marginBottom="12.5dp"
-                android:layout_toStartOf="@+id/likedPercent"
-                android:contentDescription="@string/movieposter"
-                android:src="@drawable/ic_baseline_thumb_up_24" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/ct"
-            android:layout_marginTop="20dp">
-
-            <TextView
-                android:id="@+id/comment"
+            <RelativeLayout
+                android:id="@+id/ct"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="17sp"
-                android:textStyle="italic"
-                tools:text="Name" />
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/usericon"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="5dp"
+                    android:contentDescription="@string/movieposter"
+                    android:src="@drawable/ic_round_account_circle_24" />
+
+                <TextView
+                    android:id="@+id/username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_toEndOf="@+id/usericon"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="italic"
+                    tools:text="Name" />
+
+                <TextView
+                    android:id="@+id/likedPercent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="30dp"
+                    android:gravity="end"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="italic"
+                    tools:text="Name" />
+
+                <ImageView
+                    android:id="@+id/star"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="10.5dp"
+                    android:layout_marginTop="10.5dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginBottom="10.5dp"
+                    android:layout_toStartOf="@+id/likedPercent"
+                    android:contentDescription="@string/movieposter"
+                    android:src="@drawable/ic_baseline_star_rate_24" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/commentdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ct"
+                android:layout_marginTop="20dp">
+
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    tools:ignore="MissingConstraints,ScrollViewCount">
+
+                    <TextView
+                        android:id="@+id/comment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="vertical"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="italic"
+                        tools:text="Name" />
+                </androidx.core.widget.NestedScrollView>
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/commentdt1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/commentdt">
+
+                <ImageView
+                    android:id="@+id/likedIcon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12.5dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginBottom="12.5dp"
+                    android:contentDescription="@string/movieposter"
+                    android:src="@drawable/ic_baseline_thumb_up_24"></ImageView>
+
+                <TextView
+                    android:id="@+id/likedCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toEndOf="@+id/likedIcon"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="italic"
+                    tools:text="Name" />
+
+
+                <ImageView
+                    android:id="@+id/dislikedIcon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12.5dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginBottom="12.5dp"
+                    android:layout_toRightOf="@+id/likedCount"
+                    android:contentDescription="@string/movieposter"
+                    android:src="@drawable/ic_baseline_thumb_down_24"></ImageView>
+
+                <TextView
+                    android:id="@+id/dislikedCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toEndOf="@+id/dislikedIcon"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="italic"
+                    tools:text="Name" />
+
+            </RelativeLayout>
+
         </RelativeLayout>
-    </RelativeLayout>
-</androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
 </layout>

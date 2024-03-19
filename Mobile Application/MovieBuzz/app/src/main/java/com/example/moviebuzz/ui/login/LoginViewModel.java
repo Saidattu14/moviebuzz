@@ -114,8 +114,7 @@ public class LoginViewModel extends ViewModel {
         });
     }
 
-    public void clear()
-    {
+    public void clear() {
         loginFormState.postValue(null);
         loginResult.postValue(null);
         disposables.clear();

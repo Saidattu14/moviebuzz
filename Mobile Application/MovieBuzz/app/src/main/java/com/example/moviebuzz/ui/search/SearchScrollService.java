@@ -48,13 +48,19 @@ public class SearchScrollService {
                         if (searchApiEnumValue == SearchApiEnum.Location_Based_Search) {
                             searchApiCallService.searchWithLocationBased();
                         } else if (searchApiEnumValue == SearchApiEnum.Genre_Movies_Search) {
+
                             searchApiCallService.searchWithOutLocationBased();
                         } else if (searchApiEnumValue == SearchApiEnum.Other) {
                             searchApiCallService.searchWildCard();
                         } else if(searchApiEnumValue == SearchApiEnum.Popular_Movies_Search) {
+
                             searchApiCallService.searchWithOutLocationBased();
                         } else if(searchApiEnumValue == SearchApiEnum.Rated_Movies_Search) {
                             searchApiCallService.searchWithOutLocationBased();
+                        } else if(searchApiEnumValue == SearchApiEnum.Country_Based_Search) {
+                            searchApiCallService.searchWithOutLocationBased();
+                        } else {
+                            System.out.println(searchApiEnumValue);
                         }
                     }
                 }

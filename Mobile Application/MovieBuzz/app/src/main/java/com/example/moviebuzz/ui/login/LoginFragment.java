@@ -25,6 +25,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.moviebuzz.data.enums.LocationRequestEnum;
 import com.example.moviebuzz.ui.paymentStatus.PaymentStatusFragment;
 import com.example.moviebuzz.ui.viewModel.MainViewModel;
 import com.example.moviebuzz.ui.viewModel.ViewModelFactory;
@@ -35,6 +36,7 @@ public class LoginFragment extends Fragment {
     private LoginViewModel loginViewModel;
     private MainViewModel mainViewModel;
     private FragmentLoginBinding binding;
+    private TextWatcher afterTextChangedListener;
 
     @Nullable
     @Override
@@ -97,6 +99,7 @@ public class LoginFragment extends Fragment {
                     mainViewModel.setJwtToken(loginResult.getLoginResponse().getJwtToken());
                     mainViewModel.setUserEmail(loginResult.getLoginResponse().getUserEmail());
                     mainViewModel.setUserId(loginResult.getLoginResponse().getUserId());
+                    mainViewModel.setIsLocationAccepted(LocationRequestEnum.LOCATION_REQUEST_DEFAULT);
                     navigateToSearch();
                 }
             }
@@ -179,6 +182,8 @@ public class LoginFragment extends Fragment {
         binding.password.getText().clear();
         binding.passwordTextInput.clearOnEditTextAttachedListeners();
         binding.usernameTextInput.clearOnEditTextAttachedListeners();
+        binding.username.removeTextChangedListener(afterTextChangedListener);
+        binding.password.removeTextChangedListener(afterTextChangedListener);
         binding = null;
         loginViewModel.clear();
     }

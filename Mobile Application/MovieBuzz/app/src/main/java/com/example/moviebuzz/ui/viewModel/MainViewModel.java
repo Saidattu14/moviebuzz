@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.moviebuzz.data.enums.LocationRequestEnum;
 import com.example.moviebuzz.data.enums.SearchApiEnum;
 
 import java.io.Closeable;
@@ -86,6 +87,14 @@ public class MainViewModel extends ViewModel {
     public UUID getUserId()
     {
         return  mainClass.getUserId();
+    }
+
+    public LocationRequestEnum getIsLocationAccepted() {
+        return mainClass.getIsLocationAccepted();
+    }
+
+    public void setIsLocationAccepted(LocationRequestEnum loc) {
+        mainClass.setIsLocationAccepted(loc);
     }
 
     public CompositeDisposable getDisposables() {

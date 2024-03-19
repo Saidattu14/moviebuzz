@@ -82,7 +82,6 @@ public class RegisterViewModel extends ViewModel {
             registerFormState.setValue(setPasswordUnMatchError());
         }
         else {
-
             registerFormState.setValue(setClearErrors());
         }
 
@@ -108,6 +107,7 @@ public class RegisterViewModel extends ViewModel {
 
     private void registerAPIRequest(String username, String password, String password1)
     {
+        System.out.println(username);
         disposables.add(getRegisterResponse(username,password,password1)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -143,6 +143,7 @@ public class RegisterViewModel extends ViewModel {
             retrofit2.Response<RegisterResponse>stringResponse = call.execute();
             if(stringResponse.code() != 200)
             {
+                assert stringResponse.errorBody() != null;
                 Throwable throwable = new Error(stringResponse.errorBody().string());
                 return Observable.error(throwable);
             }
@@ -152,8 +153,9 @@ public class RegisterViewModel extends ViewModel {
 
     public void clear()
     {
-        disposables.clear();
+
         registerResult.postValue(null);
         registerFormState.postValue(null);
+        disposables.clear();
     }
 }

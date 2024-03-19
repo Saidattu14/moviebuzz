@@ -44,7 +44,17 @@ public class SearchApiCallService {
     public void searchWithOutLocationBased()
     {
         setUpdatedValues();
-        searchViewModel.moviesSearchAPIRequest(jwtToken,searchApiEnumValue,"",latitude,longitude,genreType,scrollPosition);
+        if(searchApiEnumValue != null) {
+            if(searchApiEnumValue == SearchApiEnum.Country_Based_Search) {
+                searchViewModel.moviesSearchAPIRequest(jwtToken,searchApiEnumValue,searchFragment.getSearchText(),latitude,longitude,genreType,scrollPosition);
+            } else{
+                searchViewModel.moviesSearchAPIRequest(jwtToken,searchApiEnumValue,country,latitude,longitude,genreType,scrollPosition);
+            }
+        } else{
+            searchViewModel.moviesSearchAPIRequest(jwtToken,null,country,latitude,longitude,genreType,scrollPosition);
+        }
+
+
     }
 
     public void searchWildCard()

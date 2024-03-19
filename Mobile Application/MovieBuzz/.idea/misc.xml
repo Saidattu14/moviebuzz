@@ -3,6 +3,50 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1785" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/drawable/date_border.xml" value="0.1785" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.1785" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.1785" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/drawable/ic_baseline_login_24.xml" value="0.1785" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/drawable/ic_baseline_more_vert_24.xml" value="0.1785" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/drawable/ic_baseline_star_rate_24.xml" value="0.1785" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/drawable/ic_baseline_thumb_down_24.xml" value="0.1785" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/drawable/ic_baseline_thumb_up_24.xml" value="0.1785" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1785" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/drawable/ic_round_account_circle_24.xml" value="0.1785" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/drawable/ic_vanilla_1s_280px.xml" value="0.1785" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/drawable/ic_vanilla_1s_280px__1_.xml" value="0.1785" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/drawable/ic_vanilla_1s_280px__2_.xml" value="0.1785" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/drawable/my_border.xml" value="0.1785" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/drawable/theaters_boarder.xml" value="0.1785" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/_fragment_all_reviews.xml" value="0.1" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/activity_main.xml" value="0.13333333333333333" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/addlayout.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/all_reviews_recycleview.xml" value="0.1" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/autosearch.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/cast_list_adapter.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/country_list_adapter.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/dates_recycleview_layout.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/director_list_adapter.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/fragment_login.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/fragment_movie.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/fragment_movie_tickets.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/fragment_payment.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/fragment_payment_status.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/fragment_register.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/fragment_search.xml" value="0.1" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/fragment_transaction_history.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/gener_list_adapter.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/header_navigation_drawer.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/movie_title_and_poster_layout.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/moviereviews.xml" value="0.1" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/searchmovies_recycleview_layout.xml" value="0.1" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/sidedrawer_layout.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/theaters_recycleview_layout.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/ticket_details_recycleview.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/timings_recycleview.xml" value="0.1" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/transaction_history_recycleview.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/writers_list_adapter.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz/Mobile Application/MovieBuzz/app/src/main/res/drawable/add_review_border.xml" value="0.1705" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz/Mobile Application/MovieBuzz/app/src/main/res/drawable/divider_bg.xml" value="0.1705" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz/Mobile Application/MovieBuzz/app/src/main/res/drawable/divider_bg1.xml" value="0.1705" />
@@ -100,7 +144,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

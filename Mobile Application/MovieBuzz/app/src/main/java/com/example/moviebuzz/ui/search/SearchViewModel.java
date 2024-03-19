@@ -100,6 +100,7 @@ public class SearchViewModel extends ViewModel {
 
     public void moviesSearchAPIRequest(String jwtToken,SearchApiEnum searchApiEnum, String country_name, double lat, double lon, String genre, int from)
     {
+
         Observable<List<SearchMoviesResponse>> observable= getSearchResponse(jwtToken,country_name,lat,lon,searchApiEnum,genre,from);
         addDisposal(observable);
     }
@@ -160,6 +161,7 @@ public class SearchViewModel extends ViewModel {
                     break;
                 case Country_Based_Search:
                     call = searchRepository.searchMoviesByCountry(jwtToken,country_name,from,10);
+                    break;
             }
             List<SearchMoviesResponse> obj = call.execute().body();
             return Observable.just(obj);
@@ -199,7 +201,6 @@ public class SearchViewModel extends ViewModel {
             return Observable.just(obj);
         });
     }
-
     public void clear()
     {
         this.disposables.clear();

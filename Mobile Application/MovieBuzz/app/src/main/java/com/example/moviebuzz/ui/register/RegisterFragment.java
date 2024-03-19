@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.moviebuzz.R;
+import com.example.moviebuzz.data.enums.LocationRequestEnum;
 import com.example.moviebuzz.data.enums.SearchApiEnum;
 import com.example.moviebuzz.databinding.FragmentRegisterBinding;
 import com.example.moviebuzz.ui.login.LoginFragment;
@@ -39,6 +40,7 @@ public class RegisterFragment extends Fragment {
     private SearchViewModel searchViewModel;
     private MainViewModel mainViewModel;
     private  RegisterViewModel registerViewModel;
+    private TextWatcher  afterTextChangedListener;
 
     @Nullable
     @Override
@@ -55,6 +57,7 @@ public class RegisterFragment extends Fragment {
             binding = null;
             return null;
         }
+
         return binding.getRoot();
     }
 
@@ -68,6 +71,15 @@ public class RegisterFragment extends Fragment {
         final EditText passwordConfirmEdit = binding.editTextTextPassword2;
         final Button submit = binding.signup;
         final ProgressBar progressBar = binding.loading;
+
+
+        binding.cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(RegisterFragment.this)
+                        .navigate(R.id.action_registerFragment_to_loginFragment2);
+            }
+        });
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,12 +126,13 @@ public class RegisterFragment extends Fragment {
                    mainViewModel.setJwtToken(registerResult.getRegisterResponse().getJwtToken());
                    mainViewModel.setUserEmail(registerResult.getRegisterResponse().getUserEmail());
                    mainViewModel.setUserId(registerResult.getRegisterResponse().getUserId());
+                   mainViewModel.setIsLocationAccepted(LocationRequestEnum.LOCATION_REQUEST_DEFAULT);
                    navigateToSearch();
                }
            }
        });
 
-        TextWatcher afterTextChangedListener = new TextWatcher() {
+        afterTextChangedListener = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 // ignore
@@ -153,6 +166,7 @@ public class RegisterFragment extends Fragment {
             return false;
         });
 
+
         passwordConfirmEdit.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -181,7 +195,18 @@ public class RegisterFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        binding = null;
+
+       binding.editTextTextPassword.getText().clear();
+       binding.editTextTextPassword2.getText().clear();
+        binding.usernameRegister.getText().clear();
+
+        binding.passwordTextInput1.clearOnEditTextAttachedListeners();
+        binding.passwordTextInput.clearOnEditTextAttachedListeners();
+        binding.usernameTextInput.clearOnEditTextAttachedListeners();
+
+        binding.usernameRegister.removeTextChangedListener(afterTextChangedListener);
+        binding.editTextTextPassword.removeTextChangedListener(afterTextChangedListener);
+        binding.editTextTextPassword2.removeTextChangedListener(afterTextChangedListener);
         registerViewModel.clear();
     }
 }

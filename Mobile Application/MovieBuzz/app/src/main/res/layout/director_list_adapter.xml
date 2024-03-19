@@ -13,7 +13,7 @@
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
             android:textAlignment="center"
-            android:textColor="#5b39c6"
+            android:textColor="#E89788"
             android:textSize="17sp"
             android:textStyle="italic"
             tools:text="Name" />

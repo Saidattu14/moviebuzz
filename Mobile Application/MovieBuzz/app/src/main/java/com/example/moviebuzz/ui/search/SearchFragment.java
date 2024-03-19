@@ -46,6 +46,7 @@ import com.example.moviebuzz.MainActivity;
 import com.example.moviebuzz.R;
 import com.example.moviebuzz.adapters.AutoSearchAdapter;
 import com.example.moviebuzz.adapters.SearchDataMoviesAdapter;
+import com.example.moviebuzz.data.enums.LocationRequestEnum;
 import com.example.moviebuzz.data.enums.SearchApiEnum;
 import com.example.moviebuzz.data.model.BookingHistoryRequestModel;
 import com.example.moviebuzz.data.model.PaymentRequestModel;
@@ -145,9 +146,9 @@ public class SearchFragment extends Fragment implements ActivityCompat.OnRequest
                 else
                 {
                     searchPrevResultsResponse = true;
-                  binding.loading.setVisibility(View.INVISIBLE);
-                  searchService.setSearchedMoviesListAdapter(searchMoviesResponseList);
-                  binding.moviesList.setOnScrollListener(searchScrollService.onScrollListenerFunction());
+                    binding.loading.setVisibility(View.INVISIBLE);
+                    searchService.setSearchedMoviesListAdapter(searchMoviesResponseList);
+                    binding.moviesList.setOnScrollListener(searchScrollService.onScrollListenerFunction());
                 }
             }
         });
@@ -156,6 +157,7 @@ public class SearchFragment extends Fragment implements ActivityCompat.OnRequest
 
     private void checkLocationPermissions()
     {
+        if(mainViewModel.getIsLocationAccepted() == LocationRequestEnum.LOCATION_REQUEST_DEFAULT || mainViewModel.getIsLocationAccepted() == LocationRequestEnum.LOCATION_REQUEST_ACCEPTED) {
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getContext());
         if (getContext().checkPermission(Manifest.permission.ACCESS_COARSE_LOCATION, Process.myPid(), Process.myUid()) == PackageManager.PERMISSION_GRANTED) {
             checkGpsIsOnorOff();
@@ -179,6 +181,9 @@ public class SearchFragment extends Fragment implements ActivityCompat.OnRequest
                                 }
                                 catch (Exception ignored)
                                 {
+                                    mainViewModel.setIsLocationAccepted(LocationRequestEnum.LOCATION_REQUEST_REJECTED);
+                                    setApiValuesDefault(SearchApiEnum.Popular_Movies_Search);
+                                    searchApiCallService.searchWithOutLocationBased();
                                     System.out.println(ignored);
                                 }
                             }
@@ -186,11 +191,17 @@ public class SearchFragment extends Fragment implements ActivityCompat.OnRequest
             } catch (Exception e) {
                 System.out.println(e);
             }
+        } else{
+//            mainViewModel.setIsLocationAccepted(LocationRequestEnum.LOCATION_REQUEST_REJECTED);
+//            setApiValuesDefault(SearchApiEnum.Popular_Movies_Search);
+//            searchApiCallService.searchWithOutLocationBased();
+        }
         }
         else
         {
-            setApiValuesDefault(SearchApiEnum.Popular_Movies_Search);
-            searchApiCallService.searchWithOutLocationBased();
+//            mainViewModel.setIsLocationAccepted(LocationRequestEnum.LOCATION_REQUEST_REJECTED);
+//            setApiValuesDefault(SearchApiEnum.Popular_Movies_Search);
+//            searchApiCallService.searchWithOutLocationBased();
         }
     }
 
@@ -328,12 +339,12 @@ public class SearchFragment extends Fragment implements ActivityCompat.OnRequest
                         .popBackStack();
             }
         };
-        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
     }
 
     private void requestLocationPermission()
     {
-      getActivity().requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION},99);
+        getActivity().requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION},99);
     }
 
     private void checkGpsIsOnorOff()
@@ -361,6 +372,8 @@ public class SearchFragment extends Fragment implements ActivityCompat.OnRequest
         };
         return cancellationToken;
     }
+
+
 
     @Override
     public void onDestroyView() {

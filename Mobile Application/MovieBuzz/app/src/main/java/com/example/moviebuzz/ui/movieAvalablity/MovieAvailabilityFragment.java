@@ -151,7 +151,7 @@ public class MovieAvailabilityFragment extends Fragment {
     {
         searchViewModel.getSearchedMovieData().observe(getViewLifecycleOwner(), searchedMovieData -> {
             searchMoviesResponse = searchedMovieData.getCurrentSearchedMovieData();
-            citiesData = searchMoviesResponse.get_source().getCities();
+            citiesData = searchMoviesResponse.get_source().getCountry().get(0).getCities();
             CityListAdapter cityListAdapter = new CityListAdapter(citiesData,this);
             binding.countryList.setAdapter(cityListAdapter);
         });

@@ -1,5 +1,6 @@
 package com.example.moviebuzz.ui.viewModel;
 
+import com.example.moviebuzz.data.enums.LocationRequestEnum;
 import com.example.moviebuzz.data.enums.SearchApiEnum;
 
 import java.util.UUID;
@@ -12,18 +13,20 @@ public class MainClass {
     public String searchText;
     public String userEmail;
     public UUID userId;
+    public LocationRequestEnum isLocationAccepted;
 
     public MainClass() {
     }
 
     public MainClass(String jwtToken, SearchApiEnum currentAPI, String generType,String searchText,
-                     String userEmail, UUID userId) {
+                     String userEmail, UUID userId,LocationRequestEnum isLocationAccepted) {
         this.jwtToken = jwtToken;
         this.currentAPI = currentAPI;
         this.generType = generType;
         this.searchText = searchText;
         this.userEmail = userEmail;
         this.userId = userId;
+        this.isLocationAccepted = isLocationAccepted;
     }
 
     public void setUserId(UUID userId) {
@@ -74,5 +77,13 @@ public class MainClass {
 
     public void setCurrentAPI(SearchApiEnum currentAPI) {
         this.currentAPI = currentAPI;
+    }
+
+    public LocationRequestEnum getIsLocationAccepted() {
+        return isLocationAccepted;
+    }
+
+    public void setIsLocationAccepted(LocationRequestEnum isLocationAccepted) {
+        this.isLocationAccepted = isLocationAccepted;
     }
 }

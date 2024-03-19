@@ -3,51 +3,68 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
 
-    </data>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:layout_margin="2dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <RelativeLayout
             android:id="@+id/cardView"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_marginTop="16dp"
-            android:elevation="6dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/movieposter"
                 android:layout_width="match_parent"
                 android:layout_height="190dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="4dp"
-                app:layout_constraintBottom_toTopOf="@+id/itemNameTextView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
                 android:contentDescription="@string/movieposter" />
 
-            <TextView
-                android:id="@+id/itemNameTextView"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:text="Name" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/movieposter">
 
+                <TextView
+                    android:id="@+id/itemNameTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:textAlignment="center"
+                    android:textColor="#E89788"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:text="Name" />
+
+
+                <ImageView
+                    android:id="@+id/favorite"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_below="@+id/itemNameTextView"
+                    android:layout_margin="5dp"
+                    android:contentDescription="Fav"
+                    android:src="@drawable/ic_baseline_favorite_24" />
+
+                <TextView
+                    android:id="@+id/itemNameTextView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_below="@+id/itemNameTextView"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="8dp"
+                    android:textAlignment="center"
+                    android:textColor="#E89788"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:text="Name" />
+            </RelativeLayout>
+        </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </layout>

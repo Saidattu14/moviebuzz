@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moviebuzz.R;
 import com.example.moviebuzz.data.enums.SearchApiEnum;
+import com.example.moviebuzz.data.model.CountryData;
 import com.example.moviebuzz.data.model.MainData;
 import com.example.moviebuzz.databinding.CastListAdapterBinding;
 import com.example.moviebuzz.databinding.CountryListAdapterBinding;
@@ -21,10 +22,10 @@ import java.util.List;
 
 public class CountryListAdapter extends RecyclerView.Adapter<CountryListAdapter.CountryListAdapterHolder> {
     CountryListAdapterBinding countryListAdapterBinding;
-    List<MainData> countryList = new ArrayList<>();
+    List<CountryData> countryList = new ArrayList<>();
     SearchViewModel searchViewModel;
     MovieFragment movieFragment;
-    public CountryListAdapter(List<MainData> countryList,MovieFragment movieFragment,SearchViewModel searchViewModel) {
+    public CountryListAdapter(List<CountryData> countryList, MovieFragment movieFragment, SearchViewModel searchViewModel) {
         this.countryList = countryList;
         this.searchViewModel = searchViewModel;
         this.movieFragment= movieFragment;
@@ -60,14 +61,12 @@ public class CountryListAdapter extends RecyclerView.Adapter<CountryListAdapter.
             this.movieFragment= movieFragment;
         }
 
-        public void bind(MainData mainData,int pos,int size)
+        public void bind(CountryData mainData, int pos, int size)
         {
-            if(size-1 == pos)
-            {
+            if(size-1 == pos) {
                 countryListAdapterBinding.countryName.setText(mainData.getName()+".");
             }
-            else
-            {
+            else {
                 countryListAdapterBinding.countryName.setText(mainData.getName()+",");
             }
             countryListAdapterBinding.countryName.setOnClickListener(new View.OnClickListener() {
