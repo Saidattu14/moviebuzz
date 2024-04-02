@@ -4,26 +4,10 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.moviebuzz.data.AddReviewRepository;
-import com.example.moviebuzz.data.LoginRepository1;
-import com.example.moviebuzz.data.MovieRepository;
-import com.example.moviebuzz.data.model.LoggedInUserRequestBody;
-import com.example.moviebuzz.data.model.LoginResponse;
-import com.example.moviebuzz.data.model.MovieReviewsResponseBody;
-import com.example.moviebuzz.data.model.ReviewLikedRequestBody;
-import com.example.moviebuzz.data.model.SearchMoviesResponse;
-
 import com.example.moviebuzz.ui.reviews.MovieReviewsResultData;
 
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
-import io.reactivex.rxjava3.observers.DisposableObserver;
-import io.reactivex.rxjava3.schedulers.Schedulers;
-import retrofit2.Call;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MovieViewModel extends ViewModel {
 
@@ -72,23 +56,25 @@ public class MovieViewModel extends ViewModel {
 
     static Observable<String> getLoginResponse(String reviewId,boolean isLiked,boolean isDisLiked)
     {
-        return Observable.defer(() -> {
-            Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http:/192.168.43.99:8005/")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-            AddReviewRepository addReviewRepository = retrofit.create(AddReviewRepository.class);
+//        return Observable.defer(() -> {
+//            Retrofit retrofit = new Retrofit.Builder()
+//                    .baseUrl("http:/192.168.43.99:8005/")
+//                    .addConverterFactory(GsonConverterFactory.create())
+//                    .build();
+//            ReviewRepository addReviewRepository = retrofit.create(ReviewRepository.class);
+//
+//            Call<String> call = addReviewRepository.like_or_dislike_ReviewApiCall("ks",new ReviewLikedDisLikedRequestBody(isLiked,isDisLiked,reviewId,""));
+//
+//            retrofit2.Response<String> stringResponse = call.execute();
+//            if(stringResponse.code() != 200)
+//            {
+//                Throwable throwable = new Error(stringResponse.errorBody().string());
+//                return Observable.error(throwable);
+//            }
+//            return Observable.just(stringResponse.body());
+//        });
 
-            Call<String> call = addReviewRepository.like_or_dislike_ReviewApiCall("ks",new ReviewLikedRequestBody(isLiked,isDisLiked,reviewId));
-
-            retrofit2.Response<String> stringResponse = call.execute();
-            if(stringResponse.code() != 200)
-            {
-                Throwable throwable = new Error(stringResponse.errorBody().string());
-                return Observable.error(throwable);
-            }
-            return Observable.just(stringResponse.body());
-        });
+        return Observable.just("d");
     }
 
 

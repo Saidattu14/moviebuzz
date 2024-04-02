@@ -82,7 +82,6 @@ public class AutoSearchAdapter extends RecyclerView.Adapter<AutoSearchAdapter.Au
             this.searchBinding = searchBinding;
             this.searchFragment = searchFragment;
             this.jwtToken = this.searchFragment.getToken();
-
         }
 
         public void bindData(String s,SearchView searchView,List<String> searchList,SearchViewModel searchViewModel)

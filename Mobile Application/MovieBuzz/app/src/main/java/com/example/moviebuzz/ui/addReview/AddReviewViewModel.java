@@ -4,13 +4,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.moviebuzz.data.AddReviewRepository;
-import com.example.moviebuzz.data.RegisterRepository;
+import com.example.moviebuzz.data.ReviewRepository;
 import com.example.moviebuzz.data.model.AddReviewRequestBody;
-import com.example.moviebuzz.data.model.MovieReviewsResponseBody;
-import com.example.moviebuzz.data.model.RegisterUserRequestBody;
-import com.example.moviebuzz.ui.movieAvalablity.MovieAvailabilityResult;
-import com.example.moviebuzz.ui.reviews.MovieReviewsResultData;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.annotations.NonNull;
@@ -64,8 +59,8 @@ public class AddReviewViewModel extends ViewModel {
                     .baseUrl("http:/192.168.43.99:8005/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
-            AddReviewRepository addReviewRepository = retrofit.create(AddReviewRepository.class);
-            Call<String> call = addReviewRepository.addReviewApiCall(jwtToken,addReviewRequestBody);
+            ReviewRepository reviewRepository = retrofit.create(ReviewRepository.class);
+            Call<String> call = reviewRepository.addReviewApiCall(jwtToken,addReviewRequestBody);
             retrofit2.Response<String>stringResponse = call.execute();
             if(stringResponse.code() == 400 || stringResponse.code() == 500 || stringResponse.code() == 404)
             {

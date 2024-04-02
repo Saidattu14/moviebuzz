@@ -48,7 +48,6 @@ public class SearchScrollService {
                         if (searchApiEnumValue == SearchApiEnum.Location_Based_Search) {
                             searchApiCallService.searchWithLocationBased();
                         } else if (searchApiEnumValue == SearchApiEnum.Genre_Movies_Search) {
-
                             searchApiCallService.searchWithOutLocationBased();
                         } else if (searchApiEnumValue == SearchApiEnum.Other) {
                             searchApiCallService.searchWildCard();

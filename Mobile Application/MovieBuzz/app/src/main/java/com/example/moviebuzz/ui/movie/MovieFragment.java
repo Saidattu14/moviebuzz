@@ -208,6 +208,7 @@ public class MovieFragment extends Fragment {
 
     private void setReviewsRecycleView( List<MovieReviewsModel> movieReviewsModelList)
     {
+
         if(movieReviewsModelList != null)
         {
 

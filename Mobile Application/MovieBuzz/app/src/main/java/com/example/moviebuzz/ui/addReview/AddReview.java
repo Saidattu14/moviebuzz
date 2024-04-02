@@ -69,7 +69,8 @@ public class AddReview extends Fragment {
                 float twoDigitsF = Float.parseFloat(decimalFormat.format(rating));
                 if(review.length() != 0 && rating != 2)
                 {
-                    AddReviewRequestBody addReviewRequestBody = new AddReviewRequestBody(movieID, review,twoDigitsF);
+                    String[] userName = mainViewModel.getUserEmail().split("@");
+                    AddReviewRequestBody addReviewRequestBody = new AddReviewRequestBody(movieID, review,twoDigitsF,userName[0]);
                     addReviewViewModel.addReview(addReviewRequestBody,mainViewModel.getToken());
                 }
             }
@@ -121,7 +122,7 @@ public class AddReview extends Fragment {
                         .popBackStack();
             }
         };
-        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
     }
 
     @Override

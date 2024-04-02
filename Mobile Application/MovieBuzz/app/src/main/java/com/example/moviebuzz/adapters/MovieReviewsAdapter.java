@@ -29,6 +29,7 @@ import androidx.lifecycle.LifecycleEventObserver;
 import androidx.lifecycle.LifecycleOwner;
 import com.example.moviebuzz.R;
 import com.example.moviebuzz.data.model.MovieReviewsModel;
+import com.example.moviebuzz.data.model.ReviewLikedDisLikedRequestBody;
 import com.example.moviebuzz.databinding.MoviereviewsBinding;
 import com.example.moviebuzz.ui.movie.MovieViewModel;
 
@@ -87,8 +88,6 @@ public class MovieReviewsAdapter extends RecyclerView.Adapter<MovieReviewsAdapte
 
         public void bind(MovieReviewsModel movieReviewsModel)
         {
-
-
            if(movieReviewsModel.getFull_review().length() > 0) {
                moviereviewsBinding.comment.setText(movieReviewsModel.getFull_review());
            } else{
@@ -96,52 +95,54 @@ public class MovieReviewsAdapter extends RecyclerView.Adapter<MovieReviewsAdapte
            }
            moviereviewsBinding.username.setText(movieReviewsModel.getReviewer_name());
            moviereviewsBinding.likedPercent.setText(movieReviewsModel.getRating_value()+"/10");
-           moviereviewsBinding.likedCount.setText(movieReviewsModel.getLikesCount());
-           moviereviewsBinding.dislikedCount.setText(movieReviewsModel.getDislikesCount());
+           moviereviewsBinding.likedCount.setText(movieReviewsModel.getLikesCount().toString());
+           moviereviewsBinding.dislikedCount.setText(movieReviewsModel.getDislikesCount().toString());
 
+            moviereviewsBinding.likedIcon.setOnClickListener(new View.OnClickListener() {
+                @SuppressLint("ResourceType")
+                @Override
+                public void onClick(View view) {
 
-           moviereviewsBinding.likedIcon.setOnClickListener(new View.OnClickListener() {
-               @SuppressLint("ResourceType")
-               @Override
-               public void onClick(View view) {
-                    System.out.println( moviereviewsBinding.likedIcon.getResources().getColorStateList(moviereviewsBinding.likedIcon.getId()));
                     ColorFilter colorFilter = moviereviewsBinding.likedIcon.getColorFilter();
-                    if(colorFilter != null) {
-
-                        @SuppressLint("ResourceAsColor") PorterDuffColorFilter porterDuffColorFilter = new PorterDuffColorFilter(R.color.textInputOutlineColor, PorterDuff.Mode.DST_OUT);
-//                        System.out.println(porterDuffColorFilter);
-//                        System.out.println(colorFilter);
+                    if(colorFilter == null) {
+                        ColorFilter colorFilter1 = moviereviewsBinding.dislikedIcon.getColorFilter();
+                        if(colorFilter1 != null) {
+                            Integer ct = movieReviewsModel.getDislikesCount();
+                            moviereviewsBinding.dislikedCount.setText(ct.toString());
+                            moviereviewsBinding.dislikedIcon.setColorFilter(null);
+                        }
+                        Integer ct = movieReviewsModel.getLikesCount() + 1;
+                        moviereviewsBinding.likedCount.setText(ct.toString());
+                       // allReviewsViewModel.reviewLikedDisLikedApiRequest(new ReviewLikedDisLikedRequestBody(true,false,movieReviewsModel.getReviewId(),allReviewsViewModel.getLiveMovieReviews().getValue().getMovieId(),userId),token);
+                        moviereviewsBinding.likedIcon.setColorFilter(moviereviewsBinding.getRoot().getResources().getColor(R.color.textInputOutlineColor));
+                    } else{
+                        moviereviewsBinding.likedCount.setText(movieReviewsModel.getLikesCount().toString());
+                        moviereviewsBinding.likedIcon.setColorFilter(null);
                     }
-
-//                    System.out.println(moviereviewsBinding.likedIcon.getImageTintMode());
-//
-//                   if(moviereviewsBinding.likedIcon.getColorFilter().equals(moviereviewsBinding.getRoot().getResources().getColor(R.color.textInputOutlineColor))) {
-//                       moviereviewsBinding.likedIcon.setColorFilter(moviereviewsBinding.getRoot().getResources().getColor(R.color.darkGrey));
-//                   }
-//                   if(moviereviewsBinding.likedIcon.getColorFilter().equals(moviereviewsBinding.getRoot().getResources().getColor(R.color.textInputOutlineColor))) {
-//                       moviereviewsBinding.likedIcon.setColorFilter(moviereviewsBinding.getRoot().getResources().getColor(R.color.darkGrey));
-//                   } else {
-                       //moviereviewsBinding.likedIcon.getColorFilter().equals(moviereviewsBinding.getRoot().getResources().getColor(R.color.textInputOutlineColor));
-                       moviereviewsBinding.likedIcon.setColorFilter(moviereviewsBinding.getRoot().getResources().getColor(R.color.textInputOutlineColor));
-
-//                   }
-               }
-           });
-           moviereviewsBinding.dislikedIcon.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View view) {
-//                   if(moviereviewsBinding.likedIcon.getColorFilter().equals(moviereviewsBinding.getRoot().getResources().getColor(R.color.textInputOutlineColor))) {
-//                       moviereviewsBinding.likedIcon.setColorFilter(moviereviewsBinding.getRoot().getResources().getColor(R.color.darkGrey));
-//                   }
-//                   if(moviereviewsBinding.dislikedIcon.getColorFilter().equals(moviereviewsBinding.getRoot().getResources().getColor(R.color.textInputOutlineColor))) {
-//                       moviereviewsBinding.dislikedIcon.setColorFilter(moviereviewsBinding.getRoot().getResources().getColor(R.color.darkGrey));
-//                   } else{
-                       moviereviewsBinding.dislikedIcon.setColorFilter(moviereviewsBinding.getRoot().getResources().getColor(R.color.textInputOutlineColor));
-//                   }
-//
-//                   System.out.println(movieReviewsModel.getReviewId());
-               }
-           });
+                }
+            });
+            moviereviewsBinding.dislikedIcon.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ColorFilter colorFilter = moviereviewsBinding.dislikedIcon.getColorFilter();
+                    if(colorFilter == null) {
+                        ColorFilter colorFilter1 = moviereviewsBinding.likedIcon.getColorFilter();
+                        if(colorFilter1 != null) {
+                            Integer ct = movieReviewsModel.getLikesCount();
+                            moviereviewsBinding.likedCount.setText(ct.toString());
+                            moviereviewsBinding.likedIcon.setColorFilter(null);
+                        }
+                        Integer ct = movieReviewsModel.getDislikesCount() + 1;
+                        moviereviewsBinding.dislikedCount.setText(ct.toString());
+                      //  allReviewsViewModel.reviewLikedDisLikedApiRequest(new ReviewLikedDisLikedRequestBody(false,true,movieReviewsModel.getReviewId(),allReviewsViewModel.getLiveMovieReviews().getValue().getMovieId(),userId),token);
+                        moviereviewsBinding.dislikedIcon.setColorFilter(moviereviewsBinding.getRoot().getResources().getColor(R.color.textInputOutlineColor));
+                    } else{
+                        Integer ct = movieReviewsModel.getDislikesCount();
+                        moviereviewsBinding.dislikedCount.setText(ct.toString());
+                        moviereviewsBinding.dislikedIcon.setColorFilter(null);
+                    }
+                }
+            });
 
         }
     }

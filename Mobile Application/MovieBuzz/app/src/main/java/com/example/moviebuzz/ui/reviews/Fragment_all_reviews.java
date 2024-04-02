@@ -107,7 +107,8 @@ public class Fragment_all_reviews extends Fragment {
             public void onChanged(MovieReviewsResultData movieReviewsResultData) {
                 if(movieReviewsResultData != null) {
                     if (movieReviewsResultData.getError() == null) {
-                        MovieAllReviewsAdapter movieAllReviewsAdapter = new MovieAllReviewsAdapter(movieReviewsResultData.getMovieReviewsData());
+                        String[] userName = mainViewModel.getUserEmail().split("@");
+                        MovieAllReviewsAdapter movieAllReviewsAdapter = new MovieAllReviewsAdapter(movieReviewsResultData.getMovieReviewsData(),allReviewsViewModel,mainViewModel.getUserId().toString(),mainViewModel.getToken(),userName[0]);
                         binding.allReviewsRecycle.setAdapter(movieAllReviewsAdapter);
                         binding.loading.setVisibility(View.INVISIBLE);
                         binding.floatingActionButton.setVisibility(View.VISIBLE);
@@ -134,8 +135,7 @@ public class Fragment_all_reviews extends Fragment {
     private void getReviewsData(SearchMoviesResponse searchMoviesResponse)
     {
         try {
-            String movieId = "";
-            movieId = allReviewsViewModel.getLiveMovieReviews().getValue().getMovieId();
+            String movieId = movieId = allReviewsViewModel.getLiveMovieReviews().getValue().getMovieId();
             if(!searchMoviesResponse.get_source().getImdbID().equals(movieId))
             {
                 searchMoviesResponse.get_source().getImdbID();

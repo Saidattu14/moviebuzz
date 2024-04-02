@@ -106,4 +106,5 @@
         app:dividerInsetEnd="@dimen/fab_margin"
         android:fitsSystemWindows="true"
         tools:ignore="MissingConstraints"/>
+
 </androidx.drawerlayout.widget.DrawerLayout>

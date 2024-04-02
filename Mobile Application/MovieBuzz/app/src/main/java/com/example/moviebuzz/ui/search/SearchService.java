@@ -197,10 +197,9 @@ public class SearchService {
                         searchFragment.navigationToTransactionHistory();
                         return true;
                     case R.id.item2:
+                    case R.id.item4:
                         return true;
                     case R.id.item3:
-                        return true;
-                    case R.id.item4:
                         return true;
                     default:
                         return false;

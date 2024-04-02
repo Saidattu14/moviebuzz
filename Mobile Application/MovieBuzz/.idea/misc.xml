@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1785" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/drawable/date_border.xml" value="0.1785" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.1745" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.1785" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.1785" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/drawable/ic_baseline_login_24.xml" value="0.1785" />
@@ -20,33 +21,42 @@
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/drawable/my_border.xml" value="0.1785" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/drawable/theaters_boarder.xml" value="0.1785" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/_fragment_all_reviews.xml" value="0.1" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/a_scene.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/activity_main.xml" value="0.13333333333333333" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/addlayout.xml" value="0.17552083333333332" />
-        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/all_reviews_recycleview.xml" value="0.1" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/all_reviews_recycleview.xml" value="0.22" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/autosearch.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/cast_list_adapter.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/content_main.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/country_list_adapter.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/dates_recycleview_layout.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/director_list_adapter.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/fragment_login.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/fragment_movie.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/fragment_movie_availability.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/fragment_movie_tickets.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/fragment_payment.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/fragment_payment_status.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/fragment_register.xml" value="0.17552083333333332" />
-        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/fragment_search.xml" value="0.1" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/fragment_search.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/fragment_transaction_history.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/gener_list_adapter.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/header_navigation_drawer.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/movie_title_and_poster_layout.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/moviereviews.xml" value="0.1" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/searchmovies_recycleview_layout.xml" value="0.1" />
-        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/sidedrawer_layout.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/sidedrawer_layout.xml" value="0.1" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/theaters_recycleview_layout.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/ticket_details_recycleview.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/timings_recycleview.xml" value="0.1" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/transaction_history_recycleview.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/layout/writers_list_adapter.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/menu/menu_main.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/menu/navigation_drawer.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/menu/review_menu.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/menu/top_app_bar.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nagas/Desktop/moviebuzz-main/Mobile Application/MovieBuzz/app/src/main/res/menu/top_app_bar1.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz/Mobile Application/MovieBuzz/app/src/main/res/drawable/add_review_border.xml" value="0.1705" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz/Mobile Application/MovieBuzz/app/src/main/res/drawable/divider_bg.xml" value="0.1705" />
         <entry key="..\:/Users/nagas/Desktop/moviebuzz/Mobile Application/MovieBuzz/app/src/main/res/drawable/divider_bg1.xml" value="0.1705" />

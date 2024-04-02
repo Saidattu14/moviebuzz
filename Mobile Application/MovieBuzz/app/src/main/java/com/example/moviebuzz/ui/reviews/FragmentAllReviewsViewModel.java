@@ -4,9 +4,11 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.moviebuzz.data.MovieRepository;
+import com.example.moviebuzz.data.ReviewRepository;
 import com.example.moviebuzz.data.model.MovieReviewsResponseBody;
-import com.example.moviebuzz.data.model.SearchMoviesResponse;
+import com.example.moviebuzz.data.model.ReviewDeleteRequestBody;
+import com.example.moviebuzz.data.model.ReviewLikedDisLikedRequestBody;
+
 
 import java.util.ArrayList;
 
@@ -23,9 +25,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class FragmentAllReviewsViewModel extends ViewModel {
 
     private final CompositeDisposable disposables = new CompositeDisposable();
-
-
-
     private final MutableLiveData<MovieReviewsResultData> movieReviewsResultDataLiveData= new MutableLiveData<>();
 
     public LiveData<MovieReviewsResultData> getLiveMovieReviews()
@@ -66,6 +65,96 @@ public class FragmentAllReviewsViewModel extends ViewModel {
             return Observable.just(movieReviewsResponseBody);
         });
     }
+
+
+
+    public void reviewLikedDisLikedApiRequest(ReviewLikedDisLikedRequestBody reviewLikedDisLikedRequestBody,String token)
+    {
+        disposables.add(getLikedOrDisLikedApiResponse(reviewLikedDisLikedRequestBody,token)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisposableObserver<String>() {
+                    @Override
+                    public void onNext(@NonNull String s) {
+
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                }));
+    }
+
+    static Observable<String> getLikedOrDisLikedApiResponse(ReviewLikedDisLikedRequestBody reviewLikedDisLikedRequestBody,String token)
+    {
+        return Observable.defer(() -> {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http:/192.168.43.99:8005/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+            ReviewRepository reviewRepository = retrofit.create(ReviewRepository.class);
+            Call<String> call = reviewRepository.likedOrDisLikedReviewApiCall(token, reviewLikedDisLikedRequestBody);
+            retrofit2.Response<String> stringResponse = call.execute();
+            if(stringResponse.code() != 200)
+            {
+                Throwable throwable = new Error(stringResponse.errorBody().string());
+                return Observable.error(throwable);
+            }
+            return Observable.just(stringResponse.body());
+        });
+    }
+
+
+
+    public void reviewDeleteApiRequest(ReviewDeleteRequestBody reviewDeleteRequestBody, String token)
+    {
+        disposables.add(getReviewDeleteResponse(reviewDeleteRequestBody,token)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisposableObserver<String>() {
+                    @Override
+                    public void onNext(@NonNull String s) {
+
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                      System.out.println(e);
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                }));
+    }
+
+    static Observable<String> getReviewDeleteResponse(ReviewDeleteRequestBody reviewDeleteRequestBody,String token)
+    {
+        return Observable.defer(() -> {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http:/192.168.43.99:8005/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+            ReviewRepository reviewRepository = retrofit.create(ReviewRepository.class);
+            Call<String> call = reviewRepository.deleteReviewApiCall(token, reviewDeleteRequestBody);
+            retrofit2.Response<String> stringResponse = call.execute();
+            if(stringResponse.code() != 200)
+            {
+                Throwable throwable = new Error(stringResponse.errorBody().string());
+                return Observable.error(throwable);
+            }
+            return Observable.just(stringResponse.body());
+        });
+    }
+
+
     public void clearDisposables()
     {
         this.disposables.clear();
