@@ -1,0 +1,108 @@
+[
+    {
+        "row_id" : "A",
+        "seats"  : [
+                {
+                    "seat_id" : "A1",
+                    "status" : "UNBOOKED"
+                },
+                {
+                    "seat_id" : "A2",
+                    "status" : "UNBOOKED"
+                },
+                {
+                    "seat_id" : "A3",
+                    "status" : "UNBOOKED"
+                },
+                {
+                    "seat_id" : "A4",
+                    "status" : "UNBOOKED"
+                }
+        ]
+    },
+    {
+        "row_id" : "B",
+        "seats"  : [
+                {
+                    "seat_id" : "B1",
+                    "status" : "UNBOOKED"
+                },
+                {
+                    "seat_id" : "B2",
+                    "status" : "UNBOOKED"
+                },
+                {
+                    "seat_id" : "B3",
+                    "status" : "UNBOOKED"
+                },
+                {
+                    "seat_id" : "B4",
+                    "status" : "UNBOOKED"
+                }
+        ]
+    },
+    {
+        "row_id" : "C",
+        "seats"  : [
+                {
+                    "seat_id" : "C1",
+                    "status" : "UNBOOKED"
+                },
+                {
+                    "seat_id" : "C2",
+                    "status" : "UNBOOKED"
+                },
+                {
+                    "seat_id" : "C3",
+                    "status" : "UNBOOKED"
+                },
+                {
+                    "seat_id" : "C4",
+                    "status" : "UNBOOKED"
+                }
+        ]
+    },
+    {
+        "row_id" : "D",
+        "seats"  : [
+                {
+                    "seat_id" : "D1",
+                    "status" : "UNBOOKED"
+                },
+                {
+                    "seat_id" : "D2",
+                    "status" : "UNBOOKED"
+                },
+                {
+                    "seat_id" : "D3",
+                    "status" : "UNBOOKED"
+                },
+                {
+                    "seat_id" : "D4",
+                    "status" : "UNBOOKED"
+                }
+        ]
+    },
+    {
+        "row_id" : "E",
+        "seats"  : [
+                {
+                    "seat_id" : "E1",
+                    "status" : "UNBOOKED"
+                },
+                {
+                    "seat_id" : "E2",
+                    "status" : "UNBOOKED"
+                },
+                {
+                    "seat_id" : "E3",
+                    "status" : "UNBOOKED"
+                },
+                {
+                    "seat_id" : "E4",
+                    "status" : "UNBOOKED"
+                }
+        ]
+    }
+
+]

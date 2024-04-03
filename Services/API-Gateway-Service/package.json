@@ -1,0 +1,31 @@
+{
+  "name": "api_service1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node ./src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@elastic/elasticsearch": "^8.12.0",
+    "connect-redis": "^7.1.1",
+    "cors": "^2.8.5",
+    "d3": "^7.8.5",
+    "express": "^4.18.2",
+    "express-session": "^1.18.0",
+    "express-validator": "^7.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "kafka-node": "^5.0.0",
+    "node-fetch-polyfill": "^2.0.6",
+    "node-rdkafka": "^2.18.0",
+    "redis": "^4.6.12",
+    "redis-promisify": "^0.1.2",
+    "tsv": "^0.2.0",
+    "websocket": "^1.0.34",
+    "winston": "^3.11.0",
+    "ws": "^8.16.0"
+  }
+}
